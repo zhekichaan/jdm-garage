@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { Hero } from "./Hero";
+import { Catalogue } from "./Catalogue";
 
 export default function Home() {
   return (
     <main>
-      <div>Hello Next 13</div>
+      <Hero />
+      <Catalogue />
     </main>
   );
 }
