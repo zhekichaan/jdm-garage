@@ -14,7 +14,6 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
-        "rc-rocket": ["RC Rocket", "sans-serif"],
         ammonite: ["Ammonite", "sans-serif"],
         excluded: ["ExcludedItalic", "sans-serif"],
       },

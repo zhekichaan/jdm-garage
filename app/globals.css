@@ -8,6 +8,11 @@
   src: url("/fonts/ammonite.ttf");
 }
 
+@font-face {
+  font-family: "ExcludedItalic";
+  src: url("/fonts/Excludeditalic-jEr99.ttf");
+}
+
 *,
 ::before,
 ::after {
