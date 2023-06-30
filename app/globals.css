@@ -3,6 +3,11 @@
 @tailwind utilities;
 @import "react-alice-carousel/lib/alice-carousel.css";
 
+@font-face {
+  font-family: "Ammonite";
+  src: url("/fonts/ammonite.ttf");
+}
+
 *,
 ::before,
 ::after {
