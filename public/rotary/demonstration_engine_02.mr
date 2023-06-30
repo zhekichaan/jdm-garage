@@ -1,0 +1,171 @@
+import "engine_sim.mr"
+
+units units()
+constants constants()
+impulse_response_library ir_lib()
+label cycle(3 * 360 * units.deg)
+
+private node wires {
+    output wire1: ignition_wire();
+    output wire2: ignition_wire();
+    output wire3: ignition_wire();
+    output wire4: ignition_wire();
+}
+
+private node mazda_r26b {
+    alias output __out: engine;
+
+    wankel_engine engine(
+        name: "BIG BOI DORITO",
+        starter_torque: 50 * units.lb_ft,
+        starter_speed: 2000 * units.rpm,
+        redline: 9000 * units.rpm,
+        fuel: fuel(
+            max_burning_efficiency: 0.9,
+            max_dilution_effect: 1.5,
+            burning_efficiency_randomness: 1.0
+        ),
+        throttle_gamma: 4.0,
+        hf_gain: 0.01,
+        noise: 1.0,
+        jitter: 0.5,
+        simulation_frequency: 15000,
+        rotor_calculation_quality: 1024,
+        rotor_housing_resolution: 1024,
+        heat_transfer_coefficient: 200
+    )
+
+    wires wires()
+
+    label stroke(1 * units.cm)
+    label radius(10 * units.cm)
+    label depth(7 * units.cm)
+    label intake_port_start(130 * units.deg)
+    label intake_port_end(150 * units.deg)
+    label exhaust_port_start(220 * units.deg)
+    label exhaust_port_end(240 * units.deg)
+    label rotor_mass(5000 * units.g)
+    label rotor_I(disk_moment_of_inertia(mass: rotor_mass, radius: radius))
+
+    crankshaft c0(
+        throw: 0.5 * stroke,
+        flywheel_mass: 5 * units.lb,
+        mass: 5 * units.lb,
+        friction_torque: 15.0 * units.lb_ft,
+        moment_of_inertia: 0.22986844776863666 * 0.2,
+        position_x: 0.0,
+        position_y: 0.0,
+        tdc: 0.0
+    )
+
+    rod_journal rj0(angle: 0.0 * units.deg)
+    c0
+        .add_rod_journal(rj0)
+
+    engine.add_crankshaft(c0)
+
+    wankel_rotor rotor0(
+        mass: 5000 * units.g,
+        moment_of_inertia: rotor_I,
+        radius: radius,
+        crown_gear_radius: 3 * 0.5 * stroke,
+        angle: 60 * units.deg,
+        depth: depth,
+        depression_volume: 38 * units.cc
+    )
+
+    chevy_bbc_stock_intake intake(
+        carburetor_cfm: 200.0,
+        idle_flow_rate_cfm: 0.0, //0.52, //0.33,
+        idle_throttle_plate_position: 0.991 // 0.9945
+    )
+
+    exhaust_system_parameters es_params(
+        outlet_flow_rate: k_carb(550.0),
+        primary_tube_length: 10.0 * units.inch,
+        primary_flow_rate: k_carb(500.0),
+        velocity_decay: 1.0, //0.5
+        length: 100.0 * units.inch
+    )
+
+    exhaust_system exhaust0(
+        es_params,
+        length: (180 + 72.0) * units.inch,
+        audio_volume: 5.5,
+        impulse_response: ir_lib.minimal_muffling_02)
+
+    engine.add_rotor(
+        intake,
+        exhaust0,
+        rotor0,
+        rj0,
+        wires.wire1,
+        sound_attenuation: 1.0,
+        primary_length: 3 * units.inch,
+        intake_port: default_wankel_peripheral_port(intake_port_start, intake_port_end, k_carb(200.0)),
+        exhaust_port: default_wankel_peripheral_port(exhaust_port_start, exhaust_port_end, k_carb(300.0)),
+        intake_runner_cross_section_area: 4 * units.cm2,
+        exhaust_cross_section_area: 4 * units.cm2,
+        spark_plug_angle: 0
+    )
+
+    function timing_curve(1000 * units.rpm)
+    timing_curve
+        .add_sample(0000 * units.rpm, 20 * units.deg)
+        .add_sample(1000 * units.rpm, 20 * units.deg)
+        .add_sample(2000 * units.rpm, 30 * units.deg)
+        .add_sample(3000 * units.rpm, 50 * units.deg)
+        .add_sample(4000 * units.rpm, 50 * units.deg)
+
+    engine.add_ignition_module(
+        ignition_module(timing_curve: timing_curve, rev_limit: 15000 * units.rpm, limiter_duration: 0.01)
+            .connect_wire(wires.wire1, (0.0 / 12.0) * cycle)
+            .connect_wire(wires.wire1, (4.0 / 12.0) * cycle)
+            .connect_wire(wires.wire1, (8.0 / 12.0) * cycle)
+    )
+}
+
+label car_mass(1200 * units.kg)
+
+private node impreza {
+    alias output __out:
+        vehicle(
+            mass: 800 * units.kg,
+            drag_coefficient: 0.5,
+            cross_sectional_area: (72 * units.inch) * (56 * units.inch),
+            diff_ratio: 3.9,
+            tire_radius: 12 * units.inch,
+            rolling_resistance: 0.015 * car_mass * 9.81,
+            stiffness: 50 * units.lb_ft / units.deg,
+            damping: 15.0,
+            max_flex: 5 * units.deg,
+            limit_flex: true,
+            simulate_flex: true
+        );
+}
+
+private node impreza_transmission {
+    alias output __out:
+        transmission(
+            max_clutch_torque: 700 * units.lb_ft,
+            max_clutch_flex: 5 * units.deg,
+            limit_clutch_flex: true,
+            clutch_stiffness: 50 * units.lb_ft / units.deg,
+            clutch_damping: 2.0,
+            simulate_flex: true
+        )
+        .add_gear(3.636)
+        .add_gear(2.375)
+        .add_gear(1.761)
+        .add_gear(1.346)
+        .add_gear(0.971)
+        .add_gear(0.756);
+}
+
+public node main {
+    set_engine(mazda_r26b())
+    set_vehicle(impreza())
+    set_transmission(impreza_transmission())
+}
+
+main()

@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import { Hero } from "./Hero";
+import { NewArrivals } from "./newArrivals";
 import { Catalogue } from "./Catalogue";
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
     <main>
       <Hero />
       <Catalogue />
+      <NewArrivals />
     </main>
   );
 }
