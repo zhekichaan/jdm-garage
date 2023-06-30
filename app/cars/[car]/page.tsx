@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  backIcon,
   carExample,
   checkBox,
   checkBoxChecked,
@@ -15,6 +16,8 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./carousel.css";
 import { useMediaQuery } from "@mui/material";
+import Loading from "@/app/loading";
+import { useRouter } from "next/navigation";
 
 interface CarParams {
   car: string;
@@ -35,6 +38,7 @@ interface Car {
 
 export default function Car({ params }: { params: CarParams }) {
   const { car } = params;
+  const router = useRouter();
 
   const [carData, setCarData] = useState<Car>({
     _id: "",
@@ -73,7 +77,17 @@ export default function Car({ params }: { params: CarParams }) {
     <>
       {!isLoading ? (
         <div>
-          <button onClick={() => history.back()}>Go Back</button>
+          <button
+            className="flex items-center pl-[30px] md:pl-[100px] xl:pl-[10%] py-[30px]"
+            onClick={() => router.push("/cars")}
+          >
+            <Image
+              src={backIcon}
+              alt="go back icon"
+              className="w-[32px] mr-[10px]"
+            />
+            <span className="text-[32px]">Go Back</span>
+          </button>
 
           <div className="xl:flex justify-between mx-auto md:w-[668px] xl:w-[1176px] mt-[50px] md:border md:rounded xl:border-none">
             <div className="xl:w-[650px] px-[15px] pt-[15px]">
@@ -246,7 +260,7 @@ export default function Car({ params }: { params: CarParams }) {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </>
   );

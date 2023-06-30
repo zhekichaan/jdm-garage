@@ -51,7 +51,10 @@ import mileageIcon from "./icons/mileage.png";
 
 import filterIcon from "./icons/filter.png";
 
+import backIcon from "./icons/back.png";
+
 export {
+  backIcon,
   checkBox,
   checkBoxChecked,
   carExample,
