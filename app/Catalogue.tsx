@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Catalogue = () => {
   return (
     <ul className="flex flex-wrap w-mobile px-[10px] justify-center mx-auto my-[50px] md:w-tablet xl:w-desktop">
-      <li className="drop-shadow-lg hover:drop-shadow-none md:mb-[20px]">
+      <li className="relative drop-shadow-lg hover:drop-shadow-none md:mb-[20px]">
         <Link href="/cars">
           <Image
             className="md:hidden xl:block rounded md:w-[720px] md:h-[280px] xl:w-[350px] xl:h-[280px]"
@@ -25,7 +25,7 @@ export const Catalogue = () => {
           </div>
         </Link>
       </li>
-      <li className="drop-shadow-lg hover:drop-shadow-none my-[15px] md:my-[0px] md:mr-[20px] xl:mx-[50px]">
+      <li className="relative drop-shadow-lg hover:drop-shadow-none my-[15px] md:my-[0px] md:mr-[20px] xl:mx-[50px]">
         <Link href="/wheels">
           <Image className="rounded" src={wheels} alt="" />
           <div className="opacity-1 xl:opacity-0  transition-all  ease-in-out absolute top-0 hover:opacity-100">
@@ -36,7 +36,7 @@ export const Catalogue = () => {
           </div>
         </Link>
       </li>
-      <li className="drop-shadow-lg hover:drop-shadow-none">
+      <li className="relative drop-shadow-lg hover:drop-shadow-none">
         <Link href="/accessories">
           <Image className="rounded" src={accessories} alt="" />
           <div className="opacity-1 xl:opacity-0  transition-all  ease-in-out absolute top-0 hover:opacity-100">
