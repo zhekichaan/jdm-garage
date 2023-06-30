@@ -16,14 +16,20 @@ interface Wheel {
 }
 
 export default function Wheels() {
-  const value = localStorage?.getItem("brand") || "";
-
-  const [wheelBrand, setWheelBrand] = useState(value);
+  const [wheelBrand, setWheelBrand] = useState("");
   const [wheelsList, setWheelsList] = useState<Wheel[]>([]);
   const [lastPage, setLastPage] = useState(false);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Perform localStorage action
+    const brand = localStorage.getItem("brand");
+    if (brand !== null) {
+      setWheelBrand(brand);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -20,14 +20,20 @@ interface Car {
 }
 
 export default function Cars() {
-  const value = localStorage?.getItem("make") || "";
-
-  const [carMake, setCarMake] = useState(value);
+  const [carMake, setCarMake] = useState("");
   const [carsList, setCarsList] = useState<Car[]>([]);
   const [lastPage, setLastPage] = useState(false);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Perform localStorage action
+    const make = localStorage.getItem("make");
+    if (make !== null) {
+      setCarMake(make);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
