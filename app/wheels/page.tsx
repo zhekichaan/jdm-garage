@@ -137,7 +137,7 @@ export default function Wheels() {
           }
         >
           <h3 className="text-[32px] pb-[5px]">Brand</h3>
-          <ul className="text-[36px] xl:text-[20px] flex flex-col gap-[10px] pt-[10px]">
+          <ul className="text-[32px] xl:text-[20px] flex flex-col gap-[10px] pt-[10px]">
             <li
               onClick={() => handleBrandChoice("Work")}
               className={
