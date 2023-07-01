@@ -237,7 +237,6 @@ export default function Wheel({ params }: { params: WheelParams }) {
                       centerMode={isMobile ? false : true}
                       showThumbs={false}
                       showIndicators={true}
-                      infiniteLoop={infiniteLoop}
                       showArrows={true}
                       centerSlidePercentage={45}
                       renderArrowPrev={(clickHandler, hasPrev) => {
