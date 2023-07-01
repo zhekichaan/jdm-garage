@@ -99,6 +99,7 @@ export default function Car({ params }: { params: CarParams }) {
                 infiniteLoop
                 showStatus={false}
                 showThumbs={false}
+                preventMovementUntilSwipeScrollTolerance
                 renderIndicator={(onClickHandler, isSelected, index, label) => {
                   const style = isSelected ? selectedButton : button;
                   return (
