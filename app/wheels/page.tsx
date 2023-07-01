@@ -16,7 +16,13 @@ interface Wheel {
 }
 
 export default function Wheels() {
-  const [wheelBrand, setWheelBrand] = useState("");
+  let brand = "";
+  if (typeof window !== "undefined") {
+    brand = localStorage.getItem("brand") || "";
+  }
+
+  const [wheelBrand, setWheelBrand] = useState(brand);
+  const [selectedBrand, setSelectedBrand] = useState("");
   const [wheelsList, setWheelsList] = useState<Wheel[]>([]);
   const [lastPage, setLastPage] = useState(false);
   const [page, setPage] = useState(1);
@@ -24,14 +30,9 @@ export default function Wheels() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Perform localStorage action
-    const brand = localStorage.getItem("brand");
-    if (brand !== null) {
-      setWheelBrand(brand);
+    if (typeof window !== "undefined") {
+      setSelectedBrand(localStorage?.getItem("brand") || "");
     }
-  }, []);
-
-  useEffect(() => {
     const fetchData = async () => {
       try {
         if (!lastPage) {
@@ -107,6 +108,7 @@ export default function Wheels() {
     setWheelBrand(wheelBrand);
     setWheelsList([]);
     setPage(1);
+    localStorage.setItem("brand", wheelBrand);
   };
 
   return (
@@ -141,7 +143,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Work")}
               className={
-                wheelBrand === "Work"
+                selectedBrand === "Work"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -151,7 +153,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Enkei")}
               className={
-                wheelBrand === "Enkei"
+                selectedBrand === "Enkei"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -161,7 +163,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Rays")}
               className={
-                wheelBrand === "Rays"
+                selectedBrand === "Rays"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -171,7 +173,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Weds")}
               className={
-                wheelBrand === "Weds"
+                selectedBrand === "Weds"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -181,7 +183,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("BBS")}
               className={
-                wheelBrand === "BBS"
+                selectedBrand === "BBS"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -191,7 +193,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("SSR")}
               className={
-                wheelBrand === "SSR"
+                selectedBrand === "SSR"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -201,7 +203,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Yokohama")}
               className={
-                wheelBrand === "Yokohama"
+                selectedBrand === "Yokohama"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -211,7 +213,7 @@ export default function Wheels() {
             <li
               onClick={() => handleBrandChoice("Watanabe")}
               className={
-                wheelBrand === "Watanabe"
+                selectedBrand === "Watanabe"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }

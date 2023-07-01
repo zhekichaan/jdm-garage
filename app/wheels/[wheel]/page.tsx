@@ -1,6 +1,6 @@
 "use client";
 
-import { backIcon, wheelExample } from "@/public";
+import { backIcon, leftIcon, rightIcon, wheelExample } from "@/public";
 import Link from "next/link";
 import { button, selectedButton } from "@/public";
 import Image from "next/image";
@@ -79,7 +79,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
     };
 
     fetchData();
-  }, [wheelData]);
+  }, [wheel, wheelData]);
 
   const isTablet = useMediaQuery("(max-width:1280px)");
   const isMobile = useMediaQuery("(max-width:767px)");
@@ -116,13 +116,96 @@ export default function Wheel({ params }: { params: WheelParams }) {
 
           <div className="xl:flex justify-between mx-auto md:w-[668px] xl:w-[1176px] mt-[50px] md:border md:rounded xl:border-none">
             <div className="xl:w-[650px] px-[15px] pt-[15px]">
-              <Carousel infiniteLoop showThumbs={false}>
-                <Image src={wheelExample} alt="" />
-                <Image src={wheelExample} alt="" />
-                <Image src={wheelExample} alt="" />
-                <Image src={wheelExample} alt="" />
-                <Image src={wheelExample} alt="" />
-                <Image src={wheelExample} alt="" />
+              <Carousel
+                infiniteLoop
+                showThumbs={false}
+                renderIndicator={(onClickHandler, isSelected, index, label) => {
+                  const style = isSelected ? selectedButton : button;
+                  return (
+                    <Image
+                      src={style}
+                      onClick={onClickHandler}
+                      className="w-[10px] md:w-[15px] ml-[10px] pt-[20px]"
+                      width={20}
+                      alt="button"
+                    />
+                  );
+                }}
+                renderArrowPrev={(clickHandler, hasPrev) => {
+                  return (
+                    <>
+                      <div
+                        className={`${
+                          hasPrev ? "absolute" : "hidden"
+                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        onClick={clickHandler}
+                      >
+                        <Image
+                          src={leftIcon}
+                          alt="left"
+                          className="text-white w-[20px] md:w-[30px] select-none"
+                        />
+                      </div>
+                      <div
+                        className="absolute top-0 left-0 bg-transparent xl:w-[280px] xl:h-[330px] z-10"
+                        onClick={clickHandler}
+                      ></div>
+                    </>
+                  );
+                }}
+                renderArrowNext={(clickHandler, hasNext) => {
+                  return (
+                    <>
+                      <div
+                        className={`${
+                          hasNext ? "absolute" : "hidden"
+                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        onClick={clickHandler}
+                      >
+                        <Image
+                          src={rightIcon}
+                          alt="right"
+                          className="text-white w-[20px] md:w-[30px] select-none"
+                        />
+                      </div>
+                      <div
+                        className="absolute top-0 right-0 bg-transparent xl:w-[280px] xl:h-[330px]"
+                        onClick={clickHandler}
+                      ></div>
+                    </>
+                  );
+                }}
+              >
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
+                <Image
+                  src={wheelExample}
+                  alt=""
+                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
+                />
               </Carousel>
             </div>
             <div className="p-[15px] xl:border xl:rounded">
@@ -155,8 +238,52 @@ export default function Wheel({ params }: { params: WheelParams }) {
                       showThumbs={false}
                       showIndicators={true}
                       infiniteLoop={infiniteLoop}
-                      showArrows={showArrows}
+                      showArrows={true}
                       centerSlidePercentage={45}
+                      renderArrowPrev={(clickHandler, hasPrev) => {
+                        return (
+                          <>
+                            <div
+                              className={`${
+                                hasPrev ? "absolute" : "hidden"
+                              } md:hidden xl:block top-[50%] -translate-y-2/4 left-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
+                              onClick={clickHandler}
+                            >
+                              <Image
+                                src={leftIcon}
+                                alt="left"
+                                className="text-white w-[20px] select-none"
+                              />
+                            </div>
+                            <div
+                              className="absolute top-0 left-0 bg-transparent xl:w-[280px] xl:h-[330px] z-10"
+                              onClick={clickHandler}
+                            ></div>
+                          </>
+                        );
+                      }}
+                      renderArrowNext={(clickHandler, hasNext) => {
+                        return (
+                          <>
+                            <div
+                              className={`${
+                                hasNext ? "absolute" : "hidden"
+                              } md:hidden xl:block top-[50%] -translate-y-2/4 right-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
+                              onClick={clickHandler}
+                            >
+                              <Image
+                                src={rightIcon}
+                                alt="right"
+                                className="text-white w-[20px] select-none"
+                              />
+                            </div>
+                            <div
+                              className="absolute top-0 right-0 bg-transparent xl:w-[280px] xl:h-[330px]"
+                              onClick={clickHandler}
+                            ></div>
+                          </>
+                        );
+                      }}
                       renderIndicator={(
                         onClickHandler,
                         isSelected,

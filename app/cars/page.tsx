@@ -20,7 +20,14 @@ interface Car {
 }
 
 export default function Cars() {
-  const [carMake, setCarMake] = useState("");
+  let make = "";
+
+  if (typeof window !== "undefined") {
+    make = localStorage?.getItem("make") || "";
+  }
+
+  const [carMake, setCarMake] = useState(make);
+  const [selectedMake, setSelectedMake] = useState("");
   const [carsList, setCarsList] = useState<Car[]>([]);
   const [lastPage, setLastPage] = useState(false);
   const [page, setPage] = useState(1);
@@ -28,14 +35,9 @@ export default function Cars() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Perform localStorage action
-    const make = localStorage.getItem("make");
-    if (make !== null) {
-      setCarMake(make);
+    if (typeof window !== "undefined") {
+      setSelectedMake(localStorage?.getItem("make") || "");
     }
-  }, []);
-
-  useEffect(() => {
     const fetchData = async () => {
       try {
         if (!lastPage) {
@@ -146,7 +148,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Toyota")}
               className={
-                carMake === "Toyota"
+                selectedMake === "Toyota"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -156,7 +158,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Nissan")}
               className={
-                carMake === "Nissan"
+                selectedMake === "Nissan"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -166,7 +168,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Mazda")}
               className={
-                carMake === "Mazda"
+                selectedMake === "Mazda"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -176,7 +178,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Lexus")}
               className={
-                carMake === "Lexus"
+                selectedMake === "Lexus"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -186,7 +188,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Honda")}
               className={
-                carMake === "Honda"
+                selectedMake === "Honda"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
@@ -196,7 +198,7 @@ export default function Cars() {
             <li
               onClick={() => handleMakeChoice("Mitsubishi")}
               className={
-                carMake === "Mitsubishi"
+                selectedMake === "Mitsubishi"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
