@@ -28,8 +28,8 @@ import carsBanner from "./cars.png";
 import wheelsBanner from "./wheels.png";
 import accessoriesBanner from "./accessories-banner.png";
 
-import leftIcon from "./left-icon.png";
-import rightIcon from "./right-icon.png";
+import leftIcon from "./icons/left-arrow-svgrepo-com.svg";
+import rightIcon from "./icons/right-arrow-svgrepo-com.svg";
 
 import logo from "./logo.jpg";
 import menu from "./menu.png";

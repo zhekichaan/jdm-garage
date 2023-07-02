@@ -102,7 +102,8 @@ export default function Car({ params }: { params: CarParams }) {
               <Carousel
                 infiniteLoop
                 showStatus={false}
-                showThumbs={false}
+                showThumbs={true}
+                showIndicators={false}
                 renderIndicator={(onClickHandler, isSelected, index, label) => {
                   const style = isSelected ? selectedButton : button;
                   return (
@@ -121,13 +122,13 @@ export default function Car({ params }: { params: CarParams }) {
                       <div
                         className={`${
                           hasPrev ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[55%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
                           src={leftIcon}
                           alt="left"
-                          className="text-white w-[20px] md:w-[30px] select-none"
+                          className="text-white w-[20px] md:w-[50px] select-none drop-shadow-md"
                         />
                       </div>
                     </>
@@ -139,13 +140,13 @@ export default function Car({ params }: { params: CarParams }) {
                       <div
                         className={`${
                           hasNext ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[55%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
                           src={rightIcon}
                           alt="right"
-                          className="text-white w-[20px] md:w-[30px] select-none"
+                          className="text-white w-[20px] md:w-[50px] select-none drop-shadow-md"
                         />
                       </div>
                     </>
@@ -154,18 +155,20 @@ export default function Car({ params }: { params: CarParams }) {
                 }}
               >
                 {carData.photos.map((photo) => (
-                  <Image
+                  <img
                     src={photo}
                     key={photo}
                     alt=""
                     width={650}
                     height={100}
-                    className="pb-[40px] md:pb-[40px] md:px-[50px]"
                   />
                 ))}
               </Carousel>
+              <div className="hidden mt-[40px] text-xl xl:block">
+                <p>{carData.description}</p>
+              </div>
             </div>
-            <div className="p-[15px] xl:border xl:rounded">
+            <div className="p-[15px] xl:border xl:rounded xl:h-[615px]">
               <div className="md:p-[10px] divide-y-[1px] xl:w-[426px]">
                 <div className="pb-[10px] xl:pb-[20px]">
                   <h3 className="text-[24px] md:text-[36px] mb-[5px]">
@@ -321,6 +324,9 @@ export default function Car({ params }: { params: CarParams }) {
               <button className="rounded shadow w-[100%] py-[15px] mt-[20px] text-[36px] text-white bg-accent hover:brightness-95 transition-all">
                 Buy Now
               </button>
+              <div className="mt-[25px] text-l xl:hidden">
+                <p>{carData.description}</p>
+              </div>
             </div>
           </div>
         </div>
