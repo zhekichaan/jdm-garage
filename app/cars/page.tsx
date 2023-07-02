@@ -48,8 +48,10 @@ export default function Cars() {
             const response = await fetch(
               `https://enthusiastic-coat-cow.cyclic.app/api/cars/make/?make=${carMake}&page=${page}`
             );
-            const data = await response.json();
-            setCarsList((prevList) => [...prevList, ...data]);
+            const data: Car[] = await response.json();
+            const uniqueSet = new Set(data);
+            const uniqueData = [...uniqueSet];
+            setCarsList((prevList) => [...prevList, ...uniqueData]);
             setIsLoading(false);
             if ((await data).length < 6) {
               setLastPage(true);
@@ -60,8 +62,10 @@ export default function Cars() {
             const response = await fetch(
               `https://enthusiastic-coat-cow.cyclic.app/api/cars?page=${page}`
             );
-            const data = await response.json();
-            setCarsList((prevList) => [...prevList, ...data]);
+            const data: Car[] = await response.json();
+            const uniqueSet = new Set(data);
+            const uniqueData = [...uniqueSet];
+            setCarsList((prevList) => [...prevList, ...uniqueData]);
             setIsLoading(false);
             if ((await data).length < 6) {
               setLastPage(true);
@@ -130,8 +134,8 @@ export default function Cars() {
           Cars In Stock
         </h2>
       </div>
-      <div className="flex flex-col relative xl:w-desktop md:px-[25px]  xl:pt-[100px] mx-auto xl:justify-between justify-center">
-        <div className="flex py-[25px] justify-center">
+      <div className="flex flex-col xl:flex-row relative xl:w-desktop md:px-[25px]  xl:pt-[100px] mx-auto xl:justify-between justify-center">
+        <div className="flex xl:absolute py-[25px] left-[100px] top-[80px] justify-center">
           <button
             className=" flex xl:hidden items-center bg-accent top-[15px] text-white rounded-full px-4 py-2"
             onClick={() => handleFilterOpen()}
@@ -195,14 +199,14 @@ export default function Cars() {
               Mazda
             </li>
             <li
-              onClick={() => handleMakeChoice("Lexus")}
+              onClick={() => handleMakeChoice("Subaru")}
               className={
-                selectedMake === "Lexus"
+                selectedMake === "Subaru"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
             >
-              Lexus
+              Subaru
             </li>
             <li
               onClick={() => handleMakeChoice("Honda")}
@@ -228,20 +232,22 @@ export default function Cars() {
         </div>
         <div className="xl:w-[940px]">
           {carsList.length > 1 && (
-            <ul className="grid grid-cols-1 justify-items-center md:grid-cols-2 xl:grid-cols-3 gap-[20px]">
+            <ul className="grid grid-cols-1 justify-items-center md:grid-cols-2 md:w-[620px] xl:w-[940px] mx-auto xl:grid-cols-3 gap-[20px]">
               {carsList.map((car: Car) => (
                 <li
                   key={car._id}
                   className="w-[300px] p-[15px] bg-white drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
                 >
                   <Link href={"cars/" + car._id}>
-                    <Image
-                      src={car.photos[0]}
-                      width={270}
-                      height={200}
-                      alt="car image"
-                    />
-                    <h3 className="text-[20px] font-semibold mt-[10px]">
+                    <div className="relative w-[270px] h-[180px]">
+                      <Image
+                        src={car.photos[0]}
+                        fill={true}
+                        alt="car image"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                    <h3 className="text-[20px] font-semibold mt-[10px] text-ellipsis whitespace-nowrap overflow-hidden">
                       {car.year} {car.make} {car.model}
                     </h3>
                     <p className="text-[16px] my-[3px]">${car.price} CAD</p>

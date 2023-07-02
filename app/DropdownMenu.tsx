@@ -10,8 +10,6 @@ import {
   nissanLogo,
   mazda,
   mazdaLogo,
-  lexus,
-  lexusLogo,
   honda,
   hondaLogo,
   mitsubishi,
@@ -24,8 +22,9 @@ import {
   weds,
   work,
   yokohama,
+  subaru,
+  subaruLogo,
 } from "@/public";
-import { useMediaQuery } from "@mui/material";
 
 const DropdownMenu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -158,7 +157,7 @@ const DropdownMenu = () => {
                   onMouseLeave={() => setSelectedMake("")}
                 >
                   <Image
-                    src={lexus}
+                    src={subaru}
                     alt="Lexus"
                     width="200"
                     className={`transition-opacity ${
@@ -166,7 +165,7 @@ const DropdownMenu = () => {
                     }`}
                   />
                   <Image
-                    src={lexusLogo}
+                    src={subaruLogo}
                     alt="Lexus"
                     width="200"
                     className={`absolute transition-opacity top-0 ${

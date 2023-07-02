@@ -8,8 +8,8 @@ import nissan from "./makes/nissan.png";
 import nissanLogo from "./makes/nissan-logo.png";
 import mazda from "./makes/mazda.png";
 import mazdaLogo from "./makes/mazda-logo.png";
-import lexus from "./makes/lexus.png";
-import lexusLogo from "./makes/lexus-logo.png";
+import subaru from "./makes/subaru.png";
+import subaruLogo from "./makes/subaru-logo.png";
 import honda from "./makes/honda.png";
 import hondaLogo from "./makes/honda-logo.png";
 import mitsubishi from "./makes/mitsubishi.png";
@@ -70,8 +70,8 @@ export {
   nissanLogo,
   mazda,
   mazdaLogo,
-  lexus,
-  lexusLogo,
+  subaru,
+  subaruLogo,
   honda,
   hondaLogo,
   mitsubishi,
