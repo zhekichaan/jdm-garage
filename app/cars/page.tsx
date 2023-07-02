@@ -145,7 +145,7 @@ export default function Cars() {
               alt="filter"
               className="w-[20px] mr-[10px]"
             />
-            <p>Filters</p>
+            <p>{carMake !== "" ? carMake : "Filters"}</p>
           </button>
           <button
             className=" flex items-center right-[10%] top-[15px] text-black rounded-full px-4 py-2"
