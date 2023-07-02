@@ -17,8 +17,10 @@ interface Car {
   mileage: number;
   fuel: string;
   transmission: string;
-  location: string;
+  description: string;
   accessories: string[];
+  photos: string[];
+  engine: string;
 }
 
 export const NewArrivals = () => {
@@ -141,8 +143,9 @@ export const NewArrivals = () => {
                 price: number;
                 mileage: number;
                 fuel: string;
-                location: string;
                 transmission: string;
+                photos: string[];
+                engine: string;
               }) => (
                 <CarCard
                   key={car._id}
@@ -153,8 +156,9 @@ export const NewArrivals = () => {
                   price={car.price}
                   mileage={car.mileage}
                   fuel={car.fuel}
-                  location={car.location}
+                  engine={car.engine}
                   transmission={car.transmission}
+                  photos={car.photos}
                 />
               )
             )}

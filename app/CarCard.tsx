@@ -11,8 +11,9 @@ interface Props {
   price: number;
   mileage: number;
   fuel: string;
-  location: string;
   transmission: string;
+  engine: string;
+  photos: string[];
 }
 
 export const CarCard = ({
@@ -23,8 +24,9 @@ export const CarCard = ({
   price,
   mileage,
   fuel,
-  location,
   transmission,
+  engine,
+  photos,
 }: Props) => {
   const baseUrl = "cars/";
   return (
@@ -36,23 +38,32 @@ export const CarCard = ({
         >
           <div className="w-[400px] h-[300px] mr-[15px] rounded-tl rounded-bl">
             <Image
-              src={carExample}
+              src={photos[0]}
               alt="car"
               width={400}
+              height={100}
               className="object-cover h-full"
             />
           </div>
-          <div className="pl-[15px] py-[15px] h-[300px] flex flex-col justify-end">
-            <h3 className="text-2xl font-semibold">
-              {year} {make} {model}
-            </h3>
-            <p className="text-2xl">${price} CAD</p>
-            <p className="text-base">{location}</p>
-            <ul className="flex divide-x-[1px] divide-black justify-end text-base">
-              <li className="pr-[8px]">{mileage} km</li>
-              <li className="px-[8px]">{fuel}</li>
-              <li className="pl-[8px]">{transmission}</li>
-            </ul>
+          <div className="pl-[15px] h-[300px] flex flex-col justify-between">
+            <div className="grid grid-cols-2 gap-[10px]">
+              <Image src={photos[1]} alt="car" width={100} height={50} />
+              <Image src={photos[2]} alt="car" width={100} height={50} />
+              <Image src={photos[3]} alt="car" width={100} height={50} />
+              <Image src={photos[4]} alt="car" width={100} height={50} />
+            </div>
+            <div>
+              <h3 className="text-[26px] font-semibold">
+                {make} {model}
+              </h3>
+              <p className="text-2xl">${price} CAD</p>
+              <p className="text-base">{engine}</p>
+              <ul className="flex divide-x-[1px] divide-black justify-end text-base mx-auto">
+                <li className="pr-[8px]">{mileage} km</li>
+                <li className="px-[8px]">{fuel}</li>
+                <li className="pl-[8px]">{transmission}</li>
+              </ul>
+            </div>
           </div>
         </Link>
       </div>
