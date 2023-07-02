@@ -103,7 +103,6 @@ export default function Car({ params }: { params: CarParams }) {
                 infiniteLoop
                 showStatus={false}
                 showThumbs={false}
-                preventMovementUntilSwipeScrollTolerance
                 renderIndicator={(onClickHandler, isSelected, index, label) => {
                   const style = isSelected ? selectedButton : button;
                   return (
@@ -122,7 +121,7 @@ export default function Car({ params }: { params: CarParams }) {
                       <div
                         className={`${
                           hasPrev ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[55%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
@@ -131,10 +130,6 @@ export default function Car({ params }: { params: CarParams }) {
                           className="text-white w-[20px] md:w-[30px] select-none"
                         />
                       </div>
-                      <div
-                        className="absolute top-0 left-0 bg-transparent xl:w-[280px] xl:h-[330px] z-10"
-                        onClick={clickHandler}
-                      ></div>
                     </>
                   );
                 }}
@@ -144,7 +139,7 @@ export default function Car({ params }: { params: CarParams }) {
                       <div
                         className={`${
                           hasNext ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[55%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
@@ -153,10 +148,6 @@ export default function Car({ params }: { params: CarParams }) {
                           className="text-white w-[20px] md:w-[30px] select-none"
                         />
                       </div>
-                      <div
-                        className="absolute top-0 right-0 bg-transparent xl:w-[280px] xl:h-[330px]"
-                        onClick={clickHandler}
-                      ></div>
                     </>
                     //
                   );
@@ -168,7 +159,7 @@ export default function Car({ params }: { params: CarParams }) {
                     key={photo}
                     alt=""
                     width={650}
-                    height={534}
+                    height={100}
                     className="pb-[40px] md:pb-[40px] md:px-[50px]"
                   />
                 ))}
