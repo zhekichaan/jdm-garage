@@ -15,8 +15,10 @@ interface Car {
   mileage: number;
   fuel: string;
   transmission: string;
-  location: string;
+  description: string;
   accessories: string[];
+  photos: string[];
+  engine: string;
 }
 
 export default function Cars() {
@@ -213,17 +215,22 @@ export default function Cars() {
               {carsList.map((car: Car) => (
                 <li
                   key={car._id}
-                  className="w-[300px] h-[300px] p-[15px] bg-white drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
+                  className="w-[300px] p-[15px] bg-white drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
                 >
                   <Link href={"cars/" + car._id}>
-                    <Image src={carExample} width={270} alt="car image" />
+                    <Image
+                      src={car.photos[0]}
+                      width={270}
+                      height={200}
+                      alt="car image"
+                    />
                     <h3 className="text-[20px] font-semibold mt-[10px]">
                       {car.year} {car.make} {car.model}
                     </h3>
                     <p className="text-[16px] my-[3px]">${car.price} CAD</p>
                     <ul className="flex divide-x-[1px] text-[14px] ">
                       <li className="pr-[10px]">{car.mileage}km</li>
-                      <li className="px-[10px]">{car.location}</li>
+                      <li className="px-[10px]">{car.fuel}</li>
                       <li className="pl-[10px]">{car.transmission}</li>
                     </ul>
                   </Link>

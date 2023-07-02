@@ -36,8 +36,10 @@ interface Car {
   mileage: number;
   fuel: string;
   transmission: string;
-  location: string;
+  description: string;
   accessories: string[];
+  photos: string[];
+  engine: string;
 }
 
 export default function Car({ params }: { params: CarParams }) {
@@ -53,8 +55,10 @@ export default function Car({ params }: { params: CarParams }) {
     mileage: 0,
     fuel: "",
     transmission: "",
-    location: "",
+    engine: "",
     accessories: [],
+    photos: [],
+    description: "",
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -154,39 +158,20 @@ export default function Car({ params }: { params: CarParams }) {
                         onClick={clickHandler}
                       ></div>
                     </>
+                    //
                   );
                 }}
               >
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[40px] md:px-[50px]"
-                />
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[40px] md:px-[50px]"
-                />
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[40px] md:px-[50px]"
-                />
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[40px] md:px-[50px]"
-                />
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[40px] md:px-[50px]"
-                />
-                <Image
-                  src={carExample}
-                  alt=""
-                  className="pb-[20px] md:pb-[40px] md:px-[50px]"
-                />
+                {carData.photos.map((photo) => (
+                  <Image
+                    src={photo}
+                    key={photo}
+                    alt=""
+                    width={650}
+                    height={534}
+                    className="pb-[40px] md:pb-[40px] md:px-[50px]"
+                  />
+                ))}
               </Carousel>
             </div>
             <div className="p-[15px] xl:border xl:rounded">
@@ -207,7 +192,7 @@ export default function Car({ params }: { params: CarParams }) {
                       className="w-[32px] h-[32px] mr-[10px]"
                     />
                     <p className="text-[24px] md:text-[36px]">
-                      {carData.location}
+                      {carData.engine}
                     </p>
                   </li>
                   <li className="flex items-center mb-[5px]">
