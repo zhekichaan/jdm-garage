@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import DropdownMenu from "./DropdownMenu";
 import { Footer } from "./Footer";
 import MobileMenu from "./MobileMenu";
+import { Providers } from "@/redux/provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -19,11 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <Header />
-        <DropdownMenu />
-        <MobileMenu />
-        {children}
-        {/* <Footer /> */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

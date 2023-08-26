@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
+import { Island_Moments } from "next/font/google";
 
 interface Car {
   _id: string;
@@ -37,6 +38,10 @@ export default function Cars() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    setPage(1);
+  }, []);
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       setSelectedMake(localStorage?.getItem("make") || "");
     }
@@ -46,28 +51,26 @@ export default function Cars() {
           setIsLoading(true);
           if (carMake !== "") {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/cars/make/?make=${carMake}&page=${page}`
+              `https://enthusiastic-coat-cow.cyclic.app/api/cars/make/?make=${carMake}&page=${page}`,
+              { cache: "no-store" }
             );
             const data: Car[] = await response.json();
-            const uniqueSet = new Set(data);
-            const uniqueData = [...uniqueSet];
-            setCarsList((prevList) => [...prevList, ...uniqueData]);
+            setCarsList((prevList) => [...prevList, ...data]);
             setIsLoading(false);
-            if ((await data).length < 6) {
+            if (data.length < 6) {
               setLastPage(true);
             } else {
               setLastPage(false);
             }
           } else {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/cars?page=${page}`
+              `https://enthusiastic-coat-cow.cyclic.app/api/cars?page=${page}`,
+              { cache: "no-store" }
             );
             const data: Car[] = await response.json();
-            const uniqueSet = new Set(data);
-            const uniqueData = [...uniqueSet];
-            setCarsList((prevList) => [...prevList, ...uniqueData]);
+            setCarsList((prevList) => [...prevList, ...data]);
             setIsLoading(false);
-            if ((await data).length < 6) {
+            if (data.length < 6) {
               setLastPage(true);
             } else {
               setLastPage(false);
@@ -84,23 +87,27 @@ export default function Cars() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !lastPage) {
+        if (entry.isIntersecting) {
           setPage((prevPage) => prevPage + 1);
         }
       });
     });
-
-    const testDiv = document.getElementById("test");
-    if (testDiv) {
-      observer.observe(testDiv);
+    if (carsList.length > 1) {
+      const testDiv = document.getElementById("test");
+      if (testDiv) {
+        observer.observe(testDiv);
+      }
     }
 
     return () => {
-      if (testDiv) {
-        observer.unobserve(testDiv);
+      if (carsList.length > 1) {
+        const testDiv = document.getElementById("test");
+        if (testDiv) {
+          observer.unobserve(testDiv);
+        }
       }
     };
-  }, [lastPage]);
+  }, [carsList.length]);
 
   const handleFilterOpen = () => {
     setIsVisible((prevState) => !prevState);
@@ -112,13 +119,12 @@ export default function Cars() {
   };
 
   const handleMakeChoice = async (carMake: string) => {
+    setPage(1);
     setIsVisible(false);
     document.body.classList.remove(`overflow-hidden`);
     setLastPage(false);
-    setIsLoading(true);
     setCarMake(carMake);
     setCarsList([]);
-    setPage(1);
     localStorage.setItem("make", carMake);
   };
 
@@ -147,17 +153,19 @@ export default function Cars() {
             />
             <p>{carMake !== "" ? carMake : "Filters"}</p>
           </button>
-          <button
-            className=" flex items-center right-[10%] top-[15px] text-black rounded-full px-4 py-2"
-            onClick={() => handleMakeChoice("")}
-          >
-            <Image
-              src={filterIcon}
-              alt="filter"
-              className="w-[20px] mr-[10px] opacity-0"
-            />
-            <p>Clear All</p>
-          </button>
+          {carMake !== "" && (
+            <button
+              className=" flex items-center right-[10%] top-[15px] text-black rounded-full px-4 py-2"
+              onClick={() => handleMakeChoice("")}
+            >
+              <Image
+                src={filterIcon}
+                alt="filter"
+                className="w-[20px] mr-[10px] opacity-0"
+              />
+              <p>Clear All</p>
+            </button>
+          )}
         </div>
         <div
           className={
@@ -265,9 +273,7 @@ export default function Cars() {
           {isLoading && <Loading />}
         </div>
       </div>
-      <div id="test" className="mt-[50px] h-[100px]">
-        {" "}
-      </div>
+      <div id="test" className="mt-[50px] h-[100px] w-[100%]"></div>
     </>
   );
 }

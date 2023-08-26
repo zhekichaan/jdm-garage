@@ -41,6 +41,7 @@ interface Car {
   accessories: string[];
   photos: string[];
   engine: string;
+  quantity: number;
 }
 
 export default function Car({ params }: { params: CarParams }) {
@@ -60,6 +61,7 @@ export default function Car({ params }: { params: CarParams }) {
     accessories: [],
     photos: [],
     description: "",
+    quantity: 1,
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -187,7 +189,7 @@ export default function Car({ params }: { params: CarParams }) {
                         alt=""
                         className="w-[32px] h-[32px] mr-[10px]"
                       />
-                      <p className="text-[24px] md:text-[36px]">
+                      <p className="text-[24px] md:text-[32px]">
                         {carData.engine}
                       </p>
                     </li>
@@ -197,7 +199,7 @@ export default function Car({ params }: { params: CarParams }) {
                         alt=""
                         className="w-[32px] h-[32px] mr-[10px]"
                       />
-                      <p className="text-[24px] md:text-[36px]">
+                      <p className="text-[24px] md:text-[32px]">
                         {carData.mileage} km
                       </p>
                     </li>
@@ -207,7 +209,7 @@ export default function Car({ params }: { params: CarParams }) {
                         alt=""
                         className="w-[32px] h-[32px] mr-[10px]"
                       />
-                      <p className="text-[24px] md:text-[36px]">
+                      <p className="text-[24px] md:text-[32px]">
                         {carData.transmission}
                       </p>
                     </li>
@@ -217,7 +219,7 @@ export default function Car({ params }: { params: CarParams }) {
                         alt=""
                         className="w-[32px] h-[32px] mr-[10px]"
                       />
-                      <p className="text-[24px] md:text-[36px]">
+                      <p className="text-[24px] md:text-[32px]">
                         {carData.fuel}
                       </p>
                     </li>

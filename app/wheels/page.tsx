@@ -123,18 +123,37 @@ export default function Wheels() {
           Wheels
         </h2>
       </div>
-      <div className="flex relative xl:w-desktop md:px-[25px] pt-[70px] xl:pt-[100px] mx-auto xl:justify-between justify-center">
-        <button
-          className="flex items-center bg-accent absolute top-[15px] text-white rounded-full px-4 py-2"
-          onClick={() => handleFilterOpen()}
-        >
-          <Image src={filterIcon} alt="filter" className="w-[20px] mr-[10px]" />
-          <p>Filters</p>
-        </button>
+      <div className="flex flex-col xl:flex-row relative xl:w-desktop md:px-[25px]  xl:pt-[100px] mx-auto xl:justify-between justify-center">
+        <div className="flex xl:absolute py-[25px] left-[100px] top-[80px] justify-center">
+          <button
+            className=" flex xl:hidden items-center bg-accent top-[15px] text-white rounded-full px-4 py-2"
+            onClick={() => handleFilterOpen()}
+          >
+            <Image
+              src={filterIcon}
+              alt="filter"
+              className="w-[20px] mr-[10px]"
+            />
+            <p>{wheelBrand !== "" ? wheelBrand : "Filters"}</p>
+          </button>
+          {wheelBrand !== "" && (
+            <button
+              className=" flex items-center right-[10%] top-[15px] text-black rounded-full px-4 py-2"
+              onClick={() => handleBrandChoice("")}
+            >
+              <Image
+                src={filterIcon}
+                alt="filter"
+                className="w-[20px] mr-[10px] opacity-0"
+              />
+              <p>Clear All</p>
+            </button>
+          )}
+        </div>
         <div
           className={
             isVisible
-              ? "absolute left-0 z-10 bg-white w-[100%] text-center pb-[500px]"
+              ? "absolute left-0 top-[80px] z-10 bg-white w-[100%] text-center pb-[500px]"
               : "" + " hidden xl:block divide-y w-[220px] px-[15px]"
           }
         >
@@ -223,7 +242,7 @@ export default function Wheels() {
           </ul>
         </div>
         <div className="xl:w-[860px]">
-          <ul className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-[20px]">
+          <ul className="grid grid-cols-1 justify-items-center md:grid-cols-3 md:w-[580px] md:mx-auto xl:mx-0 xl:w-[860px] xl:grid-cols-4 gap-[20px]">
             {wheelsList.map((wheel: Wheel) => (
               <li
                 key={wheel._id}

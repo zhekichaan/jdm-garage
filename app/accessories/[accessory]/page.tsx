@@ -229,99 +229,101 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
                     <p className="text-[24px] md:text-[32px] mb-[10px]">
                       see other:
                     </p>
-                    <Carousel
-                      centerMode={isMobile ? false : true}
-                      showThumbs={false}
-                      showIndicators={true}
-                      infiniteLoop={infiniteLoop}
-                      showArrows={true}
-                      centerSlidePercentage={45}
-                      renderArrowPrev={(clickHandler, hasPrev) => {
-                        return (
-                          <>
-                            <div
-                              className={`${
-                                hasPrev ? "absolute" : "hidden"
-                              } md:hidden xl:block top-[50%] -translate-y-2/4 left-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
-                              onClick={clickHandler}
-                            >
-                              <Image
-                                src={leftIcon}
-                                alt="left"
-                                className="text-white w-[20px] select-none"
-                              />
-                            </div>
-                            <div
-                              className="absolute top-0 left-0 bg-transparent xl:w-[280px] xl:h-[330px] z-10"
-                              onClick={clickHandler}
-                            ></div>
-                          </>
-                        );
-                      }}
-                      renderArrowNext={(clickHandler, hasNext) => {
-                        return (
-                          <>
-                            <div
-                              className={`${
-                                hasNext ? "absolute" : "hidden"
-                              } md:hidden xl:block top-[50%] -translate-y-2/4 right-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
-                              onClick={clickHandler}
-                            >
-                              <Image
-                                src={rightIcon}
-                                alt="right"
-                                className="text-white w-[20px] select-none"
-                              />
-                            </div>
-                            <div
-                              className="absolute top-0 right-0 bg-transparent xl:w-[280px] xl:h-[330px]"
-                              onClick={clickHandler}
-                            ></div>
-                          </>
-                        );
-                      }}
-                      renderIndicator={(
-                        onClickHandler,
-                        isSelected,
-                        index,
-                        label
-                      ) => {
-                        const style = isSelected ? selectedButton : button;
-                        return (
-                          <Image
-                            src={style}
-                            onClick={onClickHandler}
-                            className="w-[10px] md:w-[15px] ml-[10px] pt-[20px]"
-                            width={20}
-                            alt="button"
-                          />
-                        );
-                      }}
-                    >
-                      {accessoriesList.map((accessory: Accessory) => (
-                        <div
-                          key={accessory._id}
-                          onClick={() =>
-                            router.push("/accessories/" + accessory._id)
-                          }
-                          className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
-                        >
-                          <Image
-                            src={accessoriesExample}
-                            alt="accessory example"
-                          />
-                          <h3 className="text-[14px] font-light mt-[5px]">
-                            {accessory.brand}
-                          </h3>
-                          <p className="text-[16px] font-medium">
-                            {accessory.name}
-                          </p>
-                          <p className="text-[14px] pr-[10px]">
-                            ${accessory.price} CAD
-                          </p>
-                        </div>
-                      ))}
-                    </Carousel>
+                    {accessoriesList.length > 1 && (
+                      <Carousel
+                        centerMode={isMobile ? false : true}
+                        showThumbs={false}
+                        showIndicators={true}
+                        infiniteLoop={true}
+                        showArrows={true}
+                        centerSlidePercentage={45}
+                        renderArrowPrev={(clickHandler, hasPrev) => {
+                          return (
+                            <>
+                              <div
+                                className={`${
+                                  hasPrev ? "absolute" : "hidden"
+                                }  md:hidden xl:block top-[50%] -translate-y-2/4 left-[5%] p-[12px] flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20 bg-secondary hover:brightness-125`}
+                                onClick={clickHandler}
+                              >
+                                <Image
+                                  src={leftIcon}
+                                  alt="left"
+                                  className="text-white w-[20px] select-none"
+                                />
+                              </div>
+                              <div
+                                className="absolute top-0 left-0 bg-transparent xl:w-[100px] xl:h-[330px] z-10"
+                                onClick={clickHandler}
+                              ></div>
+                            </>
+                          );
+                        }}
+                        renderArrowNext={(clickHandler, hasNext) => {
+                          return (
+                            <>
+                              <div
+                                className={`${
+                                  hasNext ? "absolute" : "hidden"
+                                } md:hidden xl:block top-[50%] -translate-y-2/4 right-[5%] p-[12px] flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20 bg-secondary hover:brightness-125`}
+                                onClick={clickHandler}
+                              >
+                                <Image
+                                  src={rightIcon}
+                                  alt="right"
+                                  className="text-white w-[20px] select-none"
+                                />
+                              </div>
+                              <div
+                                className="absolute top-0 right-0 bg-transparent xl:w-[100px] xl:h-[330px]"
+                                onClick={clickHandler}
+                              ></div>
+                            </>
+                          );
+                        }}
+                        renderIndicator={(
+                          onClickHandler,
+                          isSelected,
+                          index,
+                          label
+                        ) => {
+                          const style = isSelected ? selectedButton : button;
+                          return (
+                            <Image
+                              src={style}
+                              onClick={onClickHandler}
+                              className="w-[10px] md:w-[15px] ml-[10px] pt-[20px]"
+                              width={20}
+                              alt="button"
+                            />
+                          );
+                        }}
+                      >
+                        {accessoriesList.map((accessory: Accessory) => (
+                          <div
+                            key={accessory._id}
+                            onClick={() =>
+                              router.push("/accessories/" + accessory._id)
+                            }
+                            className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
+                          >
+                            <Image
+                              src={accessoriesExample}
+                              alt="accessory example"
+                            />
+                            <h3 className="text-[14px] font-light mt-[5px]">
+                              {accessory.brand}
+                            </h3>
+                            <p className="text-[16px] font-medium">
+                              {accessory.name}
+                            </p>
+                            <p className="text-[14px] pr-[10px]">
+                              ${accessory.price} CAD
+                            </p>
+                          </div>
+                        ))}
+                      </Carousel>
+                    )}
                   </li>
                 </ul>
               </div>

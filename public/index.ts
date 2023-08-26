@@ -53,7 +53,10 @@ import filterIcon from "./icons/filter.png";
 
 import backIcon from "./icons/back.png";
 
+import cartIcon from "./icons/cart.png";
+
 export {
+  cartIcon,
   backIcon,
   checkBox,
   checkBoxChecked,

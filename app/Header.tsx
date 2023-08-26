@@ -1,6 +1,7 @@
 import { logo, menu } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
+import { Cart } from "./Cart";
 
 export const Header = () => {
   return (

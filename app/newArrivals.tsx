@@ -83,7 +83,7 @@ export const NewArrivals = () => {
                   <div
                     className={`${
                       hasPrev ? "absolute" : "hidden"
-                    } bottom-0 left-[37%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
+                    } bottom-0 left-[37%] p-[12px] bg-secondary hover:brightness-125 flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20`}
                     onClick={clickHandler}
                   >
                     <Image
@@ -105,7 +105,7 @@ export const NewArrivals = () => {
                   <div
                     className={`${
                       hasNext ? "absolute" : "hidden"
-                    } bottom-0 right-[37%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
+                    } bottom-0 right-[37%] p-[12px] bg-secondary hover:brightness-125 flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20`}
                     onClick={clickHandler}
                   >
                     <Image

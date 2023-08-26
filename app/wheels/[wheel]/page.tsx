@@ -11,6 +11,8 @@ import "./carousel.css";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@mui/material";
 import Loading from "@/app/loading";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/features/cartSlice";
 
 interface WheelParams {
   wheel: string;
@@ -23,6 +25,7 @@ interface Wheel {
   price: number;
   color: string;
   size: string;
+  quantity: number;
 }
 
 export default function Wheel({ params }: { params: WheelParams }) {
@@ -34,6 +37,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
     price: 0,
     color: "",
     size: "",
+    quantity: 1,
   });
   const [wheelsList, setWheelsList] = useState<Wheel[]>([]);
   const [infiniteLoop, setInfiniteLoop] = useState(true);
@@ -53,6 +57,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
         `https://enthusiastic-coat-cow.cyclic.app/api/wheels/wheel/${wheel}`
       );
       const res = await data.json();
+      res.quantity = 1;
       setWheelData(res);
       setIsLoading(false);
     };
@@ -93,6 +98,13 @@ export default function Wheel({ params }: { params: WheelParams }) {
       setShowArrows(true);
     }
   }, [isTablet]);
+
+  const handleSubmit = () => {
+    const newData = { ...wheelData, quantity: amount };
+    dispatch(addToCart(newData));
+  };
+
+  const dispatch = useDispatch();
 
   if (!params) {
     return <div>Loading...</div>;
@@ -233,98 +245,101 @@ export default function Wheel({ params }: { params: WheelParams }) {
                     <p className="text-[24px] md:text-[32px] mb-[10px]">
                       see other:
                     </p>
-                    <Carousel
-                      centerMode={isMobile ? false : true}
-                      showThumbs={false}
-                      showIndicators={true}
-                      showArrows={true}
-                      centerSlidePercentage={45}
-                      renderArrowPrev={(clickHandler, hasPrev) => {
-                        return (
-                          <>
-                            <div
-                              className={`${
-                                hasPrev ? "absolute" : "hidden"
-                              } md:hidden xl:block top-[50%] -translate-y-2/4 left-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
-                              onClick={clickHandler}
-                            >
-                              <Image
-                                src={leftIcon}
-                                alt="left"
-                                className="text-white w-[20px] select-none"
-                              />
-                            </div>
-                            <div
-                              className="absolute top-0 left-0 bg-transparent xl:w-[280px] xl:h-[330px] z-10"
-                              onClick={clickHandler}
-                            ></div>
-                          </>
-                        );
-                      }}
-                      renderArrowNext={(clickHandler, hasNext) => {
-                        return (
-                          <>
-                            <div
-                              className={`${
-                                hasNext ? "absolute" : "hidden"
-                              } md:hidden xl:block top-[50%] -translate-y-2/4 right-[5%] p-[12px] bg-white flex justify-center items-center opacity-1 hover:opacity-100 rounded-full shadow cursor-pointer z-20 hover:brightness-95`}
-                              onClick={clickHandler}
-                            >
-                              <Image
-                                src={rightIcon}
-                                alt="right"
-                                className="text-white w-[20px] select-none"
-                              />
-                            </div>
-                            <div
-                              className="absolute top-0 right-0 bg-transparent xl:w-[280px] xl:h-[330px]"
-                              onClick={clickHandler}
-                            ></div>
-                          </>
-                        );
-                      }}
-                      renderIndicator={(
-                        onClickHandler,
-                        isSelected,
-                        index,
-                        label
-                      ) => {
-                        const style = isSelected ? selectedButton : button;
-                        return (
-                          <Image
-                            src={style}
-                            onClick={onClickHandler}
-                            className="w-[10px] md:w-[15px] ml-[10px] pt-[20px]"
-                            width={20}
-                            alt="button"
-                          />
-                        );
-                      }}
-                    >
-                      {wheelsList.map((wheel: Wheel) => (
-                        <div
-                          key={wheel._id}
-                          onClick={() => router.push("/wheels/" + wheel._id)}
-                          className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
-                        >
-                          <Image src={wheelExample} alt="wheel example" />
-                          <h3 className="text-[14px] font-light mt-[5px]">
-                            {wheel.brand} Wheels
-                          </h3>
-                          <p className="text-[16px] font-medium">
-                            {wheel.brand} {wheel.name}
-                          </p>
-                          <div className="flex justify-center divide-x-[1px]">
-                            <p className="text-[14px] pr-[10px]">
-                              ${wheel.price} CAD
+                    {wheelsList.length > 1 && (
+                      <Carousel
+                        centerMode={isMobile ? false : true}
+                        showThumbs={false}
+                        infiniteLoop
+                        showIndicators={true}
+                        showArrows={true}
+                        centerSlidePercentage={45}
+                        renderArrowPrev={(clickHandler, hasPrev) => {
+                          return (
+                            <>
+                              <div
+                                className={`${
+                                  hasPrev ? "absolute" : "hidden"
+                                } md:hidden xl:block top-[50%] -translate-y-2/4 left-[5%] p-[12px] bg-secondary hover:brightness-125 flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20`}
+                                onClick={clickHandler}
+                              >
+                                <Image
+                                  src={leftIcon}
+                                  alt="left"
+                                  className="text-white w-[20px] select-none"
+                                />
+                              </div>
+                              <div
+                                className="absolute top-0 left-0 bg-transparent xl:w-[100px] xl:h-[330px] z-10"
+                                onClick={clickHandler}
+                              ></div>
+                            </>
+                          );
+                        }}
+                        renderArrowNext={(clickHandler, hasNext) => {
+                          return (
+                            <>
+                              <div
+                                className={`${
+                                  hasNext ? "absolute" : "hidden"
+                                } md:hidden xl:block top-[50%] -translate-y-2/4 right-[5%] p-[12px] bg-secondary hover:brightness-125 flex justify-center items-center opacity-1 rounded-full shadow cursor-pointer z-20`}
+                                onClick={clickHandler}
+                              >
+                                <Image
+                                  src={rightIcon}
+                                  alt="right"
+                                  className="text-white w-[20px] select-none"
+                                />
+                              </div>
+                              <div
+                                className="absolute top-0 right-0 bg-transparent xl:w-[100px] xl:h-[330px]"
+                                onClick={clickHandler}
+                              ></div>
+                            </>
+                          );
+                        }}
+                        renderIndicator={(
+                          onClickHandler,
+                          isSelected,
+                          index,
+                          label
+                        ) => {
+                          const style = isSelected ? selectedButton : button;
+                          return (
+                            <Image
+                              src={style}
+                              onClick={onClickHandler}
+                              className="w-[10px] md:w-[15px] ml-[10px] pt-[20px]"
+                              width={20}
+                              alt="button"
+                            />
+                          );
+                        }}
+                      >
+                        {wheelsList.map((wheel: Wheel) => (
+                          <div
+                            key={wheel._id}
+                            onClick={() => router.push("/wheels/" + wheel._id)}
+                            className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
+                          >
+                            <Image src={wheelExample} alt="wheel example" />
+                            <h3 className="text-[14px] font-light mt-[5px]">
+                              {wheel.brand} Wheels
+                            </h3>
+                            <p className="text-[16px] font-medium">
+                              {wheel.brand} {wheel.name}
                             </p>
-                            <p className="text-[14px] pl-[10px]">
-                              {wheel.size}
-                            </p>
+                            <div className="flex justify-center divide-x-[1px]">
+                              <p className="text-[14px] pr-[10px]">
+                                ${wheel.price} CAD
+                              </p>
+                              <p className="text-[14px] pl-[10px]">
+                                {wheel.size}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </Carousel>
+                        ))}
+                      </Carousel>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -332,21 +347,23 @@ export default function Wheel({ params }: { params: WheelParams }) {
                 <div className="flex h-[75px] min-w-[174px] mb-[10px] md:mb-0 md:mr-[15px] border rounded items-center justify-between">
                   <button
                     className="text-[48px] px-[10px]"
-                    onClick={() =>
-                      amount >= 2 && setAmount((prevAmount) => prevAmount - 1)
-                    }
+                    onClick={() => amount >= 2 && setAmount(amount - 1)}
                   >
                     -
                   </button>
                   <p className="text-[36px]">{amount}</p>
                   <button
                     className="text-[48px] px-[10px]"
-                    onClick={() => setAmount((prevAmount) => prevAmount + 1)}
+                    onClick={() => setAmount(amount + 1)}
                   >
                     +
                   </button>
                 </div>
-                <button className="rounded shadow w-[100%] py-[15px] text-[36px] text-white bg-accent hover:brightness-95 transition-all">
+
+                <button
+                  onClick={() => handleSubmit()}
+                  className="rounded shadow w-[100%] py-[15px] text-[36px] text-white bg-accent hover:brightness-95 transition-all"
+                >
                   add to cart
                 </button>
               </div>
