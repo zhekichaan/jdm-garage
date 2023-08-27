@@ -11,8 +11,10 @@ interface Wheel {
   brand: string;
   name: string;
   price: number;
-  color: string;
+  colors: string[];
   size: string;
+  sizes: string[];
+  photos: string[];
 }
 
 export default function Wheels() {
@@ -249,7 +251,14 @@ export default function Wheels() {
                 className="pb-[10px] bg-white drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
               >
                 <Link href={"wheels/" + wheel._id} className="text-center">
-                  <Image src={wheelExample} alt="wheel example" />
+                  <Image
+                    src={wheel.photos[0]}
+                    alt="wheel example"
+                    className="p-[5px]"
+                    width={190}
+                    height={190}
+                  />
+
                   <h3 className="text-[14px] font-light mt-[5px]">
                     {wheel.brand} Wheels
                   </h3>

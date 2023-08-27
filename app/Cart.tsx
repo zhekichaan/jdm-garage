@@ -3,7 +3,7 @@
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { backIcon, cartIcon, wheelExample } from "@/public";
+import { backIcon, cartIcon, minus, plus, wheelExample } from "@/public";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -14,6 +14,8 @@ interface Product {
   _id: string;
   name: string;
   price: number;
+  additional: string;
+  photo: string;
   quantity: number;
 }
 
@@ -60,34 +62,35 @@ export const Cart = () => {
           width={30}
           onClick={() => setIsOpened(!isOpened)}
         />
-        <div>
+        <div className="relative h-[calc(var(--vh,1vh)*100-100px)]">
           {cart.length === 0 ? (
             <h1>Your Cart is Empty!</h1>
           ) : (
-            <>
+            <div className="h-[calc(var(--vh,1vh)*100-100px-200px)]">
               {cart.map((item: Product) => (
                 <div
-                  key={item._id}
+                  key={item._id + item.additional}
                   className="flex justify-between items-center mb-5"
                 >
                   <div className="flex items-center">
-                    <Image src={wheelExample} width={120} alt={""} />
+                    <Image src={item.photo} width={120} height={120} alt={""} />
                     <div className="flex">
                       <div className="ml-3">
                         <p>{item.name}</p>
+                        <p>{item.additional}</p>
                         <div className="flex mt-7 items-center gap-2">
                           <button
                             className="px-2"
                             onClick={() => dispatch(decrementQuantity(item))}
                           >
-                            -
+                            <Image src={minus} alt="" width={16} />
                           </button>
                           <p>{item.quantity}</p>
                           <button
                             className="px-2"
                             onClick={() => dispatch(incrementQuantity(item))}
                           >
-                            +
+                            <Image src={plus} alt="" width={16} />
                           </button>
                         </div>
                       </div>
@@ -104,8 +107,13 @@ export const Cart = () => {
                   </div>
                 </div>
               ))}
-              <h2>Grand Total: $ {getTotalPrice()}</h2>
-            </>
+              <div className="absolute bottom-0 w-[100%]">
+                <h2>Grand Total: $ {getTotalPrice()}</h2>
+                <button className="rounded shadow w-[100%] py-[15px] mt-5 text-[36px] text-white bg-accent hover:brightness-95 transition-all">
+                  Order Now
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>

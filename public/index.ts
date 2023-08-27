@@ -55,7 +55,12 @@ import backIcon from "./icons/back.png";
 
 import cartIcon from "./icons/cart.png";
 
+import minus from "./minus.png";
+import plus from "./plus.png";
+
 export {
+  minus,
+  plus,
   cartIcon,
   backIcon,
   checkBox,

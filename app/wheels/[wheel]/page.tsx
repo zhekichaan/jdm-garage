@@ -4,7 +4,7 @@ import { backIcon, leftIcon, rightIcon, wheelExample } from "@/public";
 import Link from "next/link";
 import { button, selectedButton } from "@/public";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./carousel.css";
@@ -23,8 +23,10 @@ interface Wheel {
   brand: string;
   name: string;
   price: number;
-  color: string;
+  colors: string[];
   size: string;
+  sizes: string[];
+  photos: string[];
   quantity: number;
 }
 
@@ -35,14 +37,18 @@ export default function Wheel({ params }: { params: WheelParams }) {
     brand: "",
     name: "",
     price: 0,
-    color: "",
+    colors: [],
     size: "",
+    sizes: [],
+    photos: [],
     quantity: 1,
   });
   const [wheelsList, setWheelsList] = useState<Wheel[]>([]);
   const [infiniteLoop, setInfiniteLoop] = useState(true);
   const [showArrows, setShowArrows] = useState(true);
   const [amount, setAmount] = useState(1);
+  const [color, setColor] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const { wheel } = params;
 
   const router = useRouter();
@@ -59,6 +65,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
       const res = await data.json();
       res.quantity = 1;
       setWheelData(res);
+      setColor(res.colors[0]);
       setIsLoading(false);
     };
 
@@ -99,8 +106,23 @@ export default function Wheel({ params }: { params: WheelParams }) {
     }
   }, [isTablet]);
 
+  const handleColorChange = (e: {
+    target: {
+      options: any;
+      value: SetStateAction<string>;
+    };
+  }) => {
+    setColor(e.target.value);
+    setSelectedIndex(e.target.options.selectedIndex);
+  };
+
   const handleSubmit = () => {
-    const newData = { ...wheelData, quantity: amount };
+    const newData = {
+      ...wheelData,
+      additional: color,
+      photo: wheelData.photos[selectedIndex],
+      quantity: amount,
+    };
     dispatch(addToCart(newData));
   };
 
@@ -188,36 +210,15 @@ export default function Wheel({ params }: { params: WheelParams }) {
                   );
                 }}
               >
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
-                <Image
-                  src={wheelExample}
-                  alt=""
-                  className="pb-[40px] md:pb-[60px] md:px-[40px]"
-                />
+                {wheelData.photos.map((photo) => (
+                  <Image
+                    key={photo}
+                    src={photo}
+                    width={460}
+                    height={460}
+                    alt=""
+                  />
+                ))}
               </Carousel>
             </div>
             <div className="p-[15px] xl:border xl:rounded">
@@ -238,7 +239,18 @@ export default function Wheel({ params }: { params: WheelParams }) {
                   </li>
                   <li className="flex items-center mb-[5px]">
                     <p className="text-[24px] md:text-[32px]">
-                      color: {wheelData.color}
+                      color:
+                      <select
+                        className="ml-3"
+                        onChange={handleColorChange}
+                        value={color}
+                      >
+                        {wheelData.colors.map((color) => (
+                          <option key={color} value={color}>
+                            {color}
+                          </option>
+                        ))}
+                      </select>
                     </p>
                   </li>
                   <li>

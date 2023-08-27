@@ -17,6 +17,8 @@ import "./carousel.css";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@mui/material";
 import Loading from "@/app/loading";
+import { addToCart } from "@/redux/features/cartSlice";
+import { useDispatch } from "react-redux";
 
 interface AccessoryParams {
   accessory: string;
@@ -28,6 +30,7 @@ interface Accessory {
   name: string;
   price: number;
   category: string;
+  quantity: number;
 }
 
 export default function Accessory({ params }: { params: AccessoryParams }) {
@@ -38,6 +41,7 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
     name: "",
     price: 0,
     category: "",
+    quantity: 1,
   });
   const [accessoriesList, setAccessoriesList] = useState<Accessory[]>([]);
   const [infiniteLoop, setInfiniteLoop] = useState(true);
@@ -94,6 +98,13 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
       setShowArrows(true);
     }
   }, [isTablet]);
+
+  const handleSubmit = () => {
+    const newData = { ...accessoryData, quantity: amount };
+    dispatch(addToCart(newData));
+  };
+
+  const dispatch = useDispatch();
 
   if (!params) {
     return <div>Loading...</div>;
@@ -345,7 +356,10 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
                     +
                   </button>
                 </div>
-                <button className="rounded shadow w-[100%] py-[15px] text-[36px] text-white bg-accent hover:brightness-95 transition-all">
+                <button
+                  onClick={() => handleSubmit()}
+                  className="rounded shadow w-[100%] py-[15px] text-[36px] text-white bg-accent hover:brightness-95 transition-all"
+                >
                   add to cart
                 </button>
               </div>

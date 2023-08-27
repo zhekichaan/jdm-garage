@@ -5,6 +5,8 @@ interface Product {
   brand: string;
   name: string;
   price: number;
+  additional: string;
+  photo: string;
   quantity: number;
 }
 
@@ -14,7 +16,9 @@ export const cart = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<any>) => {
       const itemExists = state.find(
-        (item: Product) => item._id === action.payload._id
+        (item: Product) =>
+          item._id === action.payload._id &&
+          item.additional === action.payload.additional
       );
       if (itemExists) {
         itemExists.quantity += action.payload.quantity;
@@ -24,7 +28,9 @@ export const cart = createSlice({
     },
     incrementQuantity: (state, action: PayloadAction<any>) => {
       const item = state.find(
-        (item: Product) => item._id === action.payload._id
+        (item: Product) =>
+          item._id === action.payload._id &&
+          item.additional === action.payload.additional
       );
       if (item) {
         item.quantity++;
@@ -32,12 +38,16 @@ export const cart = createSlice({
     },
     decrementQuantity: (state, action: PayloadAction<any>) => {
       const item = state.find(
-        (item: Product) => item._id === action.payload._id
+        (item: Product) =>
+          item._id === action.payload._id &&
+          item.additional === action.payload.additional
       );
       if (item) {
         if (item.quantity === 1) {
           const index = state.findIndex(
-            (item: Product) => item._id === action.payload._id
+            (item: Product) =>
+              item._id === action.payload._id &&
+              item.additional === action.payload.additional
           );
           state.splice(index, 1);
         } else {
@@ -47,7 +57,9 @@ export const cart = createSlice({
     },
     removeFromCart: (state, action: PayloadAction<any>) => {
       const index = state.findIndex(
-        (item: Product) => item._id === action.payload._id
+        (item: Product) =>
+          item._id === action.payload._id &&
+          item.additional === action.payload.additional
       );
       state.splice(index, 1);
     },
