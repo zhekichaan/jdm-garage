@@ -5,6 +5,7 @@ interface Product {
   brand: string;
   name: string;
   price: number;
+  size: string;
   additional: string;
   photo: string;
   quantity: number;
@@ -18,7 +19,8 @@ export const cart = createSlice({
       const itemExists = state.find(
         (item: Product) =>
           item._id === action.payload._id &&
-          item.additional === action.payload.additional
+          item.additional === action.payload.additional &&
+          item.size === action.payload.size
       );
       if (itemExists) {
         itemExists.quantity += action.payload.quantity;
@@ -30,7 +32,8 @@ export const cart = createSlice({
       const item = state.find(
         (item: Product) =>
           item._id === action.payload._id &&
-          item.additional === action.payload.additional
+          item.additional === action.payload.additional &&
+          item.size === action.payload.size
       );
       if (item) {
         item.quantity++;
@@ -40,14 +43,16 @@ export const cart = createSlice({
       const item = state.find(
         (item: Product) =>
           item._id === action.payload._id &&
-          item.additional === action.payload.additional
+          item.additional === action.payload.additional &&
+          item.size === action.payload.size
       );
       if (item) {
         if (item.quantity === 1) {
           const index = state.findIndex(
             (item: Product) =>
               item._id === action.payload._id &&
-              item.additional === action.payload.additional
+              item.additional === action.payload.additional &&
+              item.size === action.payload.size
           );
           state.splice(index, 1);
         } else {
@@ -59,7 +64,8 @@ export const cart = createSlice({
       const index = state.findIndex(
         (item: Product) =>
           item._id === action.payload._id &&
-          item.additional === action.payload.additional
+          item.additional === action.payload.additional &&
+          item.size === action.payload.size
       );
       state.splice(index, 1);
     },

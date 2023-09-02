@@ -14,6 +14,7 @@ interface Product {
   _id: string;
   name: string;
   price: number;
+  size: string;
   additional: string;
   photo: string;
   quantity: number;
@@ -78,7 +79,8 @@ export const Cart = () => {
                       <div className="ml-3">
                         <p>{item.name}</p>
                         <p>{item.additional}</p>
-                        <div className="flex mt-7 items-center gap-2">
+                        <p>{item.size}</p>
+                        <div className="flex mt-3 items-center gap-2">
                           <button
                             className="px-2"
                             onClick={() => dispatch(decrementQuantity(item))}
@@ -98,7 +100,7 @@ export const Cart = () => {
                   </div>
                   <div className="text-end">
                     <button
-                      className="mb-7"
+                      className="mb-11"
                       onClick={() => dispatch(removeFromCart(item))}
                     >
                       X

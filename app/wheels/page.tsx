@@ -41,7 +41,7 @@ export default function Wheels() {
           setIsLoading(true);
           if (wheelBrand !== "") {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelBrand}&page=${page}`
+              `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelBrand}&page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);
@@ -54,7 +54,7 @@ export default function Wheels() {
           } else {
             setIsLoading(true);
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/wheels?page=${page}`
+              `https://enthusiastic-coat-cow.cyclic.app/api/wheels?page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);

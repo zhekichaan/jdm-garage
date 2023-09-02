@@ -47,7 +47,9 @@ export default function Wheel({ params }: { params: WheelParams }) {
   const [infiniteLoop, setInfiniteLoop] = useState(true);
   const [showArrows, setShowArrows] = useState(true);
   const [amount, setAmount] = useState(1);
+  const [price, setPrice] = useState(0);
   const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { wheel } = params;
 
@@ -66,6 +68,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
       res.quantity = 1;
       setWheelData(res);
       setColor(res.colors[0]);
+      setPrice(res.price);
       setIsLoading(false);
     };
 
@@ -77,13 +80,14 @@ export default function Wheel({ params }: { params: WheelParams }) {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelData.brand}&page=1`
+          `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelData.brand}`
         );
         const data = await response.json();
-        const filteredData = data
-          .filter((item: { _id: string }) => item._id !== wheel)
-          .slice(0, 6);
-        setWheelsList((prevList) => [...prevList, ...filteredData]);
+        const filteredData = data.filter(
+          (item: { _id: string }) => item._id !== wheel
+        );
+
+        setWheelsList(filteredData);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -106,6 +110,17 @@ export default function Wheel({ params }: { params: WheelParams }) {
     }
   }, [isTablet]);
 
+  const handleSizeChange = (e: {
+    target: {
+      options: any;
+      value: SetStateAction<string>;
+    };
+  }) => {
+    setSize(e.target.value);
+    const newPrice = wheelData.price + 33 * e.target.options.selectedIndex;
+    setPrice(newPrice);
+  };
+
   const handleColorChange = (e: {
     target: {
       options: any;
@@ -120,6 +135,8 @@ export default function Wheel({ params }: { params: WheelParams }) {
     const newData = {
       ...wheelData,
       additional: color,
+      size: size,
+      price: price,
       photo: wheelData.photos[selectedIndex],
       quantity: amount,
     };
@@ -227,14 +244,23 @@ export default function Wheel({ params }: { params: WheelParams }) {
                   <h3 className="text-[24px] md:text-[36px] mb-[5px]">
                     {wheelData.brand} {wheelData.name}
                   </h3>
-                  <p className="text-[36px] font-semibold">
-                    ${wheelData.price} CAD
-                  </p>
+                  <p className="text-[36px] font-semibold">${price} CAD</p>
                 </div>
                 <ul className="py-[15px] xl:py-[20px]">
                   <li className="flex items-center mb-[5px]">
                     <p className="text-[24px] md:text-[32px]">
-                      size: {wheelData.size}
+                      size:{" "}
+                      <select
+                        className="ml-3"
+                        onChange={handleSizeChange}
+                        value={size}
+                      >
+                        {wheelData.sizes.map((size) => (
+                          <option key={size} value={size}>
+                            {size}
+                          </option>
+                        ))}
+                      </select>
                     </p>
                   </li>
                   <li className="flex items-center mb-[5px]">
@@ -327,29 +353,38 @@ export default function Wheel({ params }: { params: WheelParams }) {
                           );
                         }}
                       >
-                        {wheelsList.map((wheel: Wheel) => (
-                          <div
-                            key={wheel._id}
-                            onClick={() => router.push("/wheels/" + wheel._id)}
-                            className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
-                          >
-                            <Image src={wheelExample} alt="wheel example" />
-                            <h3 className="text-[14px] font-light mt-[5px]">
-                              {wheel.brand} Wheels
-                            </h3>
-                            <p className="text-[16px] font-medium">
-                              {wheel.brand} {wheel.name}
-                            </p>
-                            <div className="flex justify-center divide-x-[1px]">
-                              <p className="text-[14px] pr-[10px]">
-                                ${wheel.price} CAD
+                        {wheelsList
+                          .filter((wheel) => wheel.size === wheelData.size)
+                          .map((wheel: Wheel) => (
+                            <div
+                              key={wheel._id}
+                              onClick={() =>
+                                router.push("/wheels/" + wheel._id)
+                              }
+                              className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
+                            >
+                              <Image
+                                src={wheel.photos[0]}
+                                alt="wheel example"
+                                width={140}
+                                height={140}
+                              />
+                              <h3 className="text-[14px] font-light mt-[5px]">
+                                {wheel.brand} Wheels
+                              </h3>
+                              <p className="text-[16px] font-medium">
+                                {wheel.name}
                               </p>
-                              <p className="text-[14px] pl-[10px]">
-                                {wheel.size}
-                              </p>
+                              <div className="flex justify-center divide-x-[1px]">
+                                <p className="text-[14px] pr-[10px]">
+                                  ${wheel.price} CAD
+                                </p>
+                                <p className="text-[14px] pl-[10px]">
+                                  {wheel.size}&quot;
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </Carousel>
                     )}
                   </li>
