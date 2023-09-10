@@ -267,7 +267,7 @@ export default function Wheels() {
                   </p>
                   <div className="flex justify-center divide-x-[1px]">
                     <p className="text-[14px] pr-[10px]">${wheel.price} CAD</p>
-                    <p className="text-[14px] pl-[10px]">{wheel.size}</p>
+                    <p className="text-[14px] pl-[10px]">{wheel.size}&quot;</p>
                   </div>
                 </Link>
               </li>
