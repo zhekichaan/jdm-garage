@@ -34,7 +34,7 @@ export const NewArrivals = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://enthusiastic-coat-cow.cyclic.app/api/cars/featured"
+          "https://plum-fragile-kingfisher.cyclic.app/api/cars/featured"
         );
         const data = await response.json();
         console.log(data);

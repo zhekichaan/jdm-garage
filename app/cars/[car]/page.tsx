@@ -68,7 +68,7 @@ export default function Car({ params }: { params: CarParams }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        `https://enthusiastic-coat-cow.cyclic.app/api/cars/car/${car}`
+        `https://plum-fragile-kingfisher.cyclic.app/api/cars/car/${car}`
       );
       const res = await data.json();
       setCarData(res);

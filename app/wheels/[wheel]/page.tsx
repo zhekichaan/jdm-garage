@@ -62,7 +62,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        `https://enthusiastic-coat-cow.cyclic.app/api/wheels/wheel/${wheel}`
+        `https://plum-fragile-kingfisher.cyclic.app/api/wheels/wheel/${wheel}`
       );
       const res = await data.json();
       res.quantity = 1;
@@ -80,7 +80,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelData.brand}`
+          `https://plum-fragile-kingfisher.cyclic.app/api/wheels/brand/?brand=${wheelData.brand}`
         );
         const data = await response.json();
         const filteredData = data.filter(

@@ -51,7 +51,7 @@ export default function Cars() {
           setIsLoading(true);
           if (carMake !== "") {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/cars/make/?make=${carMake}&page=${page}`,
+              `https://plum-fragile-kingfisher.cyclic.app/api/cars/make/?make=${carMake}&page=${page}`,
               { cache: "no-store" }
             );
             const data: Car[] = await response.json();
@@ -64,7 +64,7 @@ export default function Cars() {
             }
           } else {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/cars?page=${page}`,
+              `https://plum-fragile-kingfisher.cyclic.app/api/cars?page=${page}`,
               { cache: "no-store" }
             );
             const data: Car[] = await response.json();

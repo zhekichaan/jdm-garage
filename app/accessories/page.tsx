@@ -29,7 +29,7 @@ export default function Wheels() {
           setIsLoading(true);
           if (category !== "") {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/accessories/category/?category=${category}&page=${page}`
+              `https://plum-fragile-kingfisher.cyclic.app/api/accessories/category/?category=${category}&page=${page}`
             );
             const data = await response.json();
             setAccessoriesList((prevList) => [...prevList, ...data]);
@@ -42,7 +42,7 @@ export default function Wheels() {
           } else {
             setIsLoading(true);
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/accessories?page=${page}`
+              `https://plum-fragile-kingfisher.cyclic.app/api/accessories?page=${page}`
             );
             const data = await response.json();
             setAccessoriesList((prevList) => [...prevList, ...data]);

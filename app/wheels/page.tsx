@@ -41,7 +41,7 @@ export default function Wheels() {
           setIsLoading(true);
           if (wheelBrand !== "") {
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/wheels/brand/?brand=${wheelBrand}&page=${page}&limit=12`
+              `https://plum-fragile-kingfisher.cyclic.app/api/wheels/brand/?brand=${wheelBrand}&page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);
@@ -54,7 +54,7 @@ export default function Wheels() {
           } else {
             setIsLoading(true);
             const response = await fetch(
-              `https://enthusiastic-coat-cow.cyclic.app/api/wheels?page=${page}&limit=12`
+              `https://plum-fragile-kingfisher.cyclic.app/api/wheels?page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);
@@ -189,17 +189,7 @@ export default function Wheels() {
                   : "cursor-pointer hover:scale-105"
               }
             >
-              RAYS
-            </li>
-            <li
-              onClick={() => handleBrandChoice("Weds")}
-              className={
-                selectedBrand === "Weds"
-                  ? "text-accent cursor-default"
-                  : "cursor-pointer hover:scale-105"
-              }
-            >
-              Weds
+              Rays
             </li>
             <li
               onClick={() => handleBrandChoice("BBS")}
@@ -229,17 +219,7 @@ export default function Wheels() {
                   : "cursor-pointer hover:scale-105"
               }
             >
-              Yokohama
-            </li>
-            <li
-              onClick={() => handleBrandChoice("Watanabe")}
-              className={
-                selectedBrand === "Watanabe"
-                  ? "text-accent cursor-default"
-                  : "cursor-pointer hover:scale-105"
-              }
-            >
-              Watanabe
+              Advan
             </li>
           </ul>
         </div>

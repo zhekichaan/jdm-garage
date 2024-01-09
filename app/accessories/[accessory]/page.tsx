@@ -55,7 +55,7 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        `https://enthusiastic-coat-cow.cyclic.app/api/accessories/accessory/${accessory}`
+        `https://plum-fragile-kingfisher.cyclic.app/api/accessories/accessory/${accessory}`
       );
       const res = await data.json();
       setAccessoryData(res);
@@ -70,7 +70,7 @@ export default function Accessory({ params }: { params: AccessoryParams }) {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://enthusiastic-coat-cow.cyclic.app/api/accessories/category/?category=${accessoryData.category}&page=1`
+          `https://plum-fragile-kingfisher.cyclic.app/api/accessories/category/?category=${accessoryData.category}&page=1`
         );
         const data = await response.json();
         const filteredData = data
