@@ -286,17 +286,6 @@ const DropdownMenu = () => {
                 </Link>
                 <Link href={"/wheels"}>
                   <Image
-                    src={weds}
-                    alt=""
-                    width="200"
-                    className="ease-in-out duration-300 hover:scale-110"
-                    onClick={handleOptionLeave}
-                    onMouseEnter={() => setSelectedBrand("Weds")}
-                    onMouseLeave={() => setSelectedBrand("")}
-                  ></Image>
-                </Link>
-                <Link href={"/wheels"}>
-                  <Image
                     src={bbs}
                     alt=""
                     width="200"
@@ -324,18 +313,7 @@ const DropdownMenu = () => {
                     width="200"
                     className="ease-in-out duration-300 hover:scale-110"
                     onClick={handleOptionLeave}
-                    onMouseEnter={() => setSelectedBrand("Yokohama")}
-                    onMouseLeave={() => setSelectedBrand("")}
-                  ></Image>
-                </Link>
-                <Link href={"/wheels"}>
-                  <Image
-                    src={watanabe}
-                    alt=""
-                    width="200"
-                    className="ease-in-out duration-300 hover:scale-110"
-                    onClick={handleOptionLeave}
-                    onMouseEnter={() => setSelectedBrand("Watanabe")}
+                    onMouseEnter={() => setSelectedBrand("Advan")}
                     onMouseLeave={() => setSelectedBrand("")}
                   ></Image>
                 </Link>

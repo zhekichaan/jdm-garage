@@ -68,7 +68,7 @@ export default function Car({ params }: { params: CarParams }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        `https://plum-fragile-kingfisher.cyclic.app/api/cars/car/${car}`
+        `https://jdm-garage-backend-674d69810b7f.herokuapp.com/api/cars/car/${car}`
       );
       const res = await data.json();
       setCarData(res);

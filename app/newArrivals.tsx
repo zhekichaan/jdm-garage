@@ -34,7 +34,7 @@ export const NewArrivals = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://plum-fragile-kingfisher.cyclic.app/api/cars/featured"
+          "https://jdm-garage-backend-674d69810b7f.herokuapp.com/api/cars/featured"
         );
         const data = await response.json();
         console.log(data);

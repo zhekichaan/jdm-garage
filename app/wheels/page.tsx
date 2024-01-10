@@ -41,7 +41,7 @@ export default function Wheels() {
           setIsLoading(true);
           if (wheelBrand !== "") {
             const response = await fetch(
-              `https://plum-fragile-kingfisher.cyclic.app/api/wheels/brand/?brand=${wheelBrand}&page=${page}&limit=12`
+              `https://jdm-garage-backend-674d69810b7f.herokuapp.com/api/wheels/brand/?brand=${wheelBrand}&page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);
@@ -54,7 +54,7 @@ export default function Wheels() {
           } else {
             setIsLoading(true);
             const response = await fetch(
-              `https://plum-fragile-kingfisher.cyclic.app/api/wheels?page=${page}&limit=12`
+              `https://jdm-garage-backend-674d69810b7f.herokuapp.com/api/wheels?page=${page}&limit=12`
             );
             const data = await response.json();
             setWheelsList((prevList) => [...prevList, ...data]);
@@ -212,9 +212,9 @@ export default function Wheels() {
               SSR
             </li>
             <li
-              onClick={() => handleBrandChoice("Yokohama")}
+              onClick={() => handleBrandChoice("Advan")}
               className={
-                selectedBrand === "Yokohama"
+                selectedBrand === "Advan"
                   ? "text-accent cursor-default"
                   : "cursor-pointer hover:scale-105"
               }
