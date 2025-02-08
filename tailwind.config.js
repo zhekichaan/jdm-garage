@@ -7,9 +7,9 @@ module.exports = {
       transparent: "transparent",
       white: "#ffffff",
       black: "#000",
-      secondary: "#3D3D3D",
-      accent: "#B094DF",
-      bg: "#F4F4F4",
+      secondary: "#16537E",
+      accent: "#FF4C4C",
+      bg: "#000",
     },
     extend: {
       fontFamily: {

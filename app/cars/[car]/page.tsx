@@ -5,6 +5,7 @@ import {
   backIcon,
   button,
   carExample,
+  carMap,
   checkBox,
   checkBoxChecked,
   fuelIcon,
@@ -35,12 +36,13 @@ interface Car {
   year: number;
   price: number;
   mileage: number;
-  fuel: string;
+  capacity: string;
   transmission: string;
-  description: string;
-  accessories: string[];
-  photos: string[];
   engine: string;
+  engineType: string;
+  drive: string;
+  photos: string[];
+  description: string;
   quantity: number;
 }
 
@@ -55,10 +57,11 @@ export default function Car({ params }: { params: CarParams }) {
     year: 0,
     price: 0,
     mileage: 0,
-    fuel: "",
+    capacity: "",
     transmission: "",
     engine: "",
-    accessories: [],
+    engineType: "",
+    drive: "",
     photos: [],
     description: "",
     quantity: 1,
@@ -167,173 +170,79 @@ export default function Car({ params }: { params: CarParams }) {
                   />
                 ))}
               </Carousel>
-              <div className="hidden mt-[40px] text-xl xl:block">
-                <p>{carData.description}</p>
-              </div>
             </div>
-            <div>
-              <div className="p-[15px] xl:rounded xl:border">
-                <div className="md:p-[10px] divide-y-[1px] xl:w-[426px] ">
-                  <div className="pb-[10px] xl:pb-[20px]">
-                    <h3 className="text-[24px] md:text-[36px] mb-[5px]">
-                      {carData.year} {carData.make} {carData.model}
-                    </h3>
-                    <p className="text-[36px] font-semibold">
-                      ${carData.price} CAD
-                    </p>
+            <div className="p-[15px] bg-white text-black md:p-[10px] xl:w-[426px]">
+              <div className="pb-4">
+                <div className="flex justify-between border-2 border-accent border-collapse">
+                  <div className="px-1 pt-1">
+                    <h3 className="text-secondary font-bold">車種</h3>
+                    <h4 className="uppercase text-xl">
+                      {carData.make} {carData.model}
+                    </h4>
                   </div>
-                  <ul className="py-[15px] xl:py-[20px]">
-                    <li className="flex items-center mb-[5px]">
-                      <Image
-                        src={locationIcon}
-                        alt=""
-                        className="w-[32px] h-[32px] mr-[10px]"
-                      />
-                      <p className="text-[24px] md:text-[32px]">
-                        {carData.engine}
-                      </p>
-                    </li>
-                    <li className="flex items-center mb-[5px]">
-                      <Image
-                        src={mileageIcon}
-                        alt=""
-                        className="w-[32px] h-[32px] mr-[10px]"
-                      />
-                      <p className="text-[24px] md:text-[32px]">
-                        {carData.mileage} km
-                      </p>
-                    </li>
-                    <li className="flex items-center mb-[5px]">
-                      <Image
-                        src={gearboxIcon}
-                        alt=""
-                        className="w-[32px] h-[32px] mr-[10px]"
-                      />
-                      <p className="text-[24px] md:text-[32px]">
-                        {carData.transmission}
-                      </p>
-                    </li>
-                    <li className="flex items-center">
-                      <Image
-                        src={fuelIcon}
-                        alt=""
-                        className="w-[32px] h-[32px] mr-[10px]"
-                      />
-                      <p className="text-[24px] md:text-[32px]">
-                        {carData.fuel}
-                      </p>
-                    </li>
-                  </ul>
-                  <ul className="md:flex justify-between pt-[15px] xl:pt-[20px] text-[20px]">
-                    <li>
-                      <p className="text-[24px] mb-[15px] text-center font-medium">
-                        Comfort
-                      </p>
-                      <ul className="">
-                        <li className="flex mb-[7px]">
-                          <Image
-                            src={
-                              carData.accessories.includes("A/C")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>A/C</p>
-                        </li>
-                        <li className="flex">
-                          <Image
-                            src={
-                              carData.accessories.includes("Power Steering")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>
-                            Power {isDesktop ? <br /> : ""}
-                            Steering
-                          </p>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <p className="mt-[15px] md:mt-0 text-[24px] mb-[15px] text-center font-medium">
-                        Safety
-                      </p>
-                      <ul>
-                        <li className="flex mb-[7px]">
-                          <Image
-                            src={
-                              carData.accessories.includes("ABS")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>ABS</p>
-                        </li>
-                        <li className="flex">
-                          <Image
-                            src={
-                              carData.accessories.includes("Airbag")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>Airbag</p>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <p className="mt-[15px] md:mt-0 text-[24px] mb-[15px] text-center font-medium">
-                        Others
-                      </p>
-                      <ul>
-                        <li className="flex mb-[7px]">
-                          <Image
-                            src={
-                              carData.accessories.includes("AM/FM")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>AM/FM</p>
-                        </li>
-                        <li className="flex">
-                          <Image
-                            src={
-                              carData.accessories.includes("Power Windows")
-                                ? checkBoxChecked
-                                : checkBox
-                            }
-                            alt=""
-                            className="w-[24px] h-[24px] mr-[10px]"
-                          />
-                          <p>
-                            Power {isDesktop ? <br /> : ""}
-                            Windows
-                          </p>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <button className="rounded shadow w-[100%] py-[15px] mt-[20px] text-[36px] text-white bg-accent hover:brightness-95 transition-all">
-                    Buy Now
-                  </button>
+                  <div className="px-1 pt-1 border-l-2 border-accent">
+                    <h3 className="text-secondary font-bold">年</h3>
+                    <h4 className="text-2xl px-3">{carData.year}</h4>
+                  </div>
+                </div>
+                <div className="flex justify-between border-x-2 border-b-2 border-accent border-collapse">
+                  <div className="px-1 pt-1">
+                    <h3 className="text-secondary font-bold">マイレージ</h3>
+                    <h4 className="text-2xl">
+                      {carData.mileage.toLocaleString("en-US")} km
+                    </h4>
+                  </div>
+                  <div className="px-1 pt-1 border-l-2 border-accent">
+                    <h3 className="text-secondary font-bold">価格</h3>
+                    <h4 className="text-2xl px-3">
+                      ¥{(carData.price * 105).toLocaleString("en-US")}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div className="pb-6  ">
+                <div className="flex justify-between border-2 border-accent border-collapse">
+                  <div className="px-1 pt-1 text-left">
+                    <h3 className="text-secondary font-bold">エンジン</h3>
+                    <h4 className="uppercase text-2xl">{carData.engine}</h4>
+                  </div>
+                  <div className="flex">
+                    <div className="px-1 pt-1 border-l-2 border-accent">
+                      <h3 className="text-secondary font-bold">排気量</h3>
+                      <h4 className="text-2xl px-3">{carData.capacity} L</h4>
+                    </div>
+                    <div className="px-1 pt-1 border-l-2 border-accent">
+                      <h3 className="text-secondary font-bold">シフト</h3>
+                      <h4 className="text-2xl ">{carData.transmission}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between border-x-2 border-b-2 border-accent border-collapse">
+                  <div className="px-1 pt-1">
+                    <h3 className="text-secondary font-bold">エンジン種類</h3>
+                    <h4 className="text-2xl">{carData.engineType}</h4>
+                  </div>
+                  <div className="px-1 pt-1 border-l-2 border-accent">
+                    <h3 className="text-secondary font-bold">
+                      ドライブトレイン
+                    </h3>
+                    <h4 className="text-2xl ">{carData.drive}</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="text-secondary font-bold">検査官のメモ</h3>
+                  <p className="text-xl pr-5 leading-[45px] underline underline-offset-8 decoration-dotted">
+                    {carData.description}
+                  </p>
                 </div>
 
-                <div className="mt-[25px] text-l xl:hidden">
-                  <p>{carData.description}</p>
-                </div>
+                <Image src={carMap} alt="car map" className="w-[150px]" />
               </div>
+              <button className="rounded shadow w-[100%] py-[15px] mt-[40px] text-[36px] text-white bg-accent hover:brightness-95 transition-all">
+                Get a Quote
+              </button>
             </div>
           </div>
         </div>

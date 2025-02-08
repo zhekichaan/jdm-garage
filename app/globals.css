@@ -31,6 +31,8 @@ html {
 }
 
 body {
+  background-color: #000;
+  color: #fff;
   margin: 0; /* Remove the margin in all browsers. */
 }
 

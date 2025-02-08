@@ -58,7 +58,10 @@ import cartIcon from "./icons/cart.png";
 import minus from "./minus.png";
 import plus from "./plus.png";
 
+import carMap from "./car-map.jpg";
+
 export {
+  carMap,
   minus,
   plus,
   cartIcon,
