@@ -29,7 +29,7 @@ const MobileMenu = () => {
         onClick={() => setIsOpened((prevState) => !prevState)}
         className={
           (isOpened ? "hover:scale-75 transition " : "") +
-          "absolute right-[15px] top-[15px] xl:hidden"
+          "absolute left-[15px] top-[15px] xl:hidden"
         }
       >
         <Image src={menu} alt="" width="40" height="40" />

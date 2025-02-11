@@ -31,7 +31,7 @@ export const CarCard = ({
   const baseUrl = "cars/";
   return (
     <div className="w-[700px] mx-auto mb-[50px] xl:mb-[60px] text-center">
-      <div className="rounded w-full h-full bg-white drop-shadow-lg p-[15px]">
+      <div className="rounded w-full h-full text-black bg-white drop-shadow-lg p-[15px]">
         <Link
           href={baseUrl + id}
           className="flex justify-center items-center content-center divide-x-[1px] divide-black text-right"
@@ -78,10 +78,12 @@ export const CarCard = ({
             </div>
             <div className="pt-[20px]">
               <h3 className="text-[26px] w-[234px] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
-                {year} {make} {model}
+                {make} {model}
               </h3>
               <p className="text-2xl">${price} CAD</p>
-              <p className="text-base">{engine}</p>
+              <p className="text-base">
+                {year} | {mileage} km
+              </p>
             </div>
           </div>
         </Link>

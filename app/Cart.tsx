@@ -43,10 +43,10 @@ export const Cart = () => {
       <Image
         src={cartIcon}
         alt="cart"
-        width={25}
-        className="absolute top-[25px] right-[100px]"
+        width={40}
+        className="absolute top-[15px] right-[30px] md:right-[100px]"
       />
-      <span className="absolute h-[20px] p-[3px] min-w-[20px] top-[15px] right-[88px] rounded-[12px] bg-black text-white text-center text-xs">
+      <span className="absolute h-[20px] p-[3px] min-w-[20px] top-[15px] right-[25px] md:right-[83px] rounded-[12px] bg-black text-white text-center text-xs">
         {cart.length}
       </span>
     </div>

@@ -32,7 +32,7 @@ import leftIcon from "./icons/left-arrow-svgrepo-com.svg";
 import rightIcon from "./icons/right-arrow-svgrepo-com.svg";
 
 import logo from "./logo.jpg";
-import menu from "./menu.png";
+import menu from "./icons/menu.png";
 
 import button from "./button.png";
 import selectedButton from "./button-selected.png";
@@ -44,15 +44,9 @@ import accessoriesExample from "./accessories-example.png";
 import checkBox from "./check-box.png";
 import checkBoxChecked from "./check-box-checked.png";
 
-import fuelIcon from "./icons/fuel.png";
-import gearboxIcon from "./icons/gearbox.png";
-import locationIcon from "./icons/location.png";
-import mileageIcon from "./icons/mileage.png";
-
 import filterIcon from "./icons/filter.png";
 
 import backIcon from "./icons/back.png";
-
 import cartIcon from "./icons/cart.png";
 
 import minus from "./minus.png";
@@ -104,9 +98,5 @@ export {
   menu,
   button,
   selectedButton,
-  fuelIcon,
-  gearboxIcon,
-  locationIcon,
-  mileageIcon,
   filterIcon,
 };
