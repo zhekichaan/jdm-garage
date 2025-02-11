@@ -8,11 +8,7 @@ import {
   carMap,
   checkBox,
   checkBoxChecked,
-  fuelIcon,
-  gearboxIcon,
   leftIcon,
-  locationIcon,
-  mileageIcon,
   rightIcon,
   selectedButton,
 } from "@/public";
