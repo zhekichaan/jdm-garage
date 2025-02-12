@@ -1,0 +1,362 @@
+[
+  {
+    "make": "Nissan",
+    "model": "Silvia S15",
+    "year": 1999,
+    "price": 37000,
+    "mileage": 91390,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "Spec R",
+    "drive": "RWD",
+    "description": "Clean title, Tuned, Bride seats",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073859/cars/1150-nissan-s15-silvia/nissan-s15-silvia-spec-r-sale_g87ips.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073860/cars/1150-nissan-s15-silvia/3123121_ge1ewf.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073860/cars/1150-nissan-s15-silvia/nissan-s15-silvia-spec-r-sale_8_ba2o5t.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073862/cars/1150-nissan-s15-silvia/nissan-s15-silvia-spec-r-sale_9_tu7s24.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073861/cars/1150-nissan-s15-silvia/nissan-s15-silvia-spec-r-sale_10_ox4cys.jpg"
+    ]
+  },
+  {
+    "make": "Honda",
+    "model": "Civic",
+    "year": 1998,
+    "price": 22000,
+    "mileage": 165000,
+    "capacity": "1.6",
+    "transmission": "Manual",
+    "engine": "Inline 4 VTEC",
+    "engineType": "Type R",
+    "drive": "FWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073926/cars/1163-honda-civic/honda-civic-type-r-sale_pjmeml.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073928/cars/1163-honda-civic/honda-civic-type-r-sale_1_o0cphf.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073931/cars/1163-honda-civic/honda-civic-type-r-sale_3_xvwhp1.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073932/cars/1163-honda-civic/honda-civic-type-r-sale_4_f2igqr.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073930/cars/1163-honda-civic/honda-civic-type-r-sale_2_idys1j.jpg"
+    ]
+  },
+  {
+    "make": "Mazda",
+    "model": "RX-7",
+    "year": 2002,
+    "price": 77000,
+    "mileage": 17800,
+    "capacity": "1.3",
+    "transmission": "Manual",
+    "engine": "Twin-Rotor",
+    "engineType": "Spirit R",
+    "drive": "RWD",
+    "description": "Very rare, Clean title, Mostly stock",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074094/cars/1189-mazda-rx-7-r/mazda-rx-7-spirit-r-sale_qt7yh0.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074085/cars/1189-mazda-rx-7-r/mazda-rx-7-spirit-r-sale_2_agdgka.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074088/cars/1189-mazda-rx-7-r/mazda-rx-7-spirit-r-sale_5_plo51t.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074088/cars/1189-mazda-rx-7-r/mazda-rx-7-spirit-r-sale_5_plo51t.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074092/cars/1189-mazda-rx-7-r/mazda-rx-7-spirit-r-sale_6_yatxso.jpg"
+    ]
+  },
+  {
+    "make": "Honda",
+    "model": "Integra",
+    "year": 1999,
+    "price": 25000,
+    "mileage": 145221,
+    "capacity": "1.6",
+    "transmission": "Manual",
+    "engine": "Inline 4 VTEC",
+    "engineType": "Type R",
+    "drive": "FWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073981/cars/1179-honda-integra/honda-integra-type-r-sale_cdpiff.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073975/cars/1179-honda-integra/honda-integra-type-r-sale_1_a6siqe.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073979/cars/1179-honda-integra/honda-integra-type-r-sale_2_bitloy.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073978/cars/1179-honda-integra/honda-integra-type-r-sale_4_pmfl0v.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073976/cars/1179-honda-integra/honda-integra-type-r-sale_3_kbjqb4.jpg"
+    ]
+  },
+  {
+    "make": "Toyota",
+    "model": "Supra",
+    "year": 1996,
+    "price": 56000,
+    "mileage": 116050,
+    "capacity": "3.0",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "RZ",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329959/cars/1185-toyota-supra/toyota-supra-sale_el0ejq.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329850/cars/1185-toyota-supra/toyota-supra-sale_1_tgkpoi.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329908/cars/1185-toyota-supra/toyota-supra-sale_2_b7apek.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329956/cars/1185-toyota-supra/toyota-supra-sale_3_pjv4ol.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329957/cars/1185-toyota-supra/toyota-supra-sale_4_ivfaib.jpg"
+    ]
+  },
+  {
+    "make": "Nissan",
+    "model": "180SX",
+    "year": 1995,
+    "price": 19900,
+    "mileage": 37900,
+    "capacity": "1.8",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "Turbo",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073661/cars/1148-nissan-180sx/nissan-180sx-sale_ozwoan.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073659/cars/1148-nissan-180sx/nissan-180sx-sale_4_qqgkzx.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073659/cars/1148-nissan-180sx/nissan-180sx-sale_7_g0kvzf.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073660/cars/1148-nissan-180sx/nissan-180sx-sale_8_gj0rjp.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739248066/cars/1148-nissan-180sx/nissan-180sx-sale123123_gg47ox.jpg"
+    ]
+  },
+  {
+    "make": "Subaru",
+    "model": "Impreza",
+    "year": 1998,
+    "price": 26000,
+    "mileage": 137845,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Flat-four",
+    "engineType": "WRX STi",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073884/cars/1159-subaru-impreza-sti/subaru-impreza-sti-coupe-sale_gc5gcx.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073885/cars/1159-subaru-impreza-sti/subaru-impreza-sti-coupe-sale_1_jncki4.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073886/cars/1159-subaru-impreza-sti/subaru-impreza-sti-coupe-sale_3_a3mayl.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073888/cars/1159-subaru-impreza-sti/subaru-impreza-sti-coupe-sale_4_mks2y8.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073886/cars/1159-subaru-impreza-sti/subaru-impreza-sti-coupe-sale_2_rtolnc.jpg"
+    ]
+  },
+  {
+    "make": "Mitsubishi",
+    "model": "Lancer",
+    "year": 1995,
+    "price": 19900,
+    "mileage": 37900,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "Evo III",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073908/cars/1161-mitsubishi-lancer-3/lancer-evo-3-sale_qdteia.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073905/cars/1161-mitsubishi-lancer-3/lancer-evo-3-sale_2_x93keb.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073906/cars/1161-mitsubishi-lancer-3/lancer-evo-3-sale_6_b41wos.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073909/cars/1161-mitsubishi-lancer-3/lancer-evo-3-sale1_i4rm7l.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073907/cars/1161-mitsubishi-lancer-3/lancer-evo-3-sale_7_pa5xjv.jpg"
+    ]
+  },
+  {
+    "make": "Honda",
+    "model": "Prelude",
+    "year": 1997,
+    "price": 20000,
+    "mileage": 90500,
+    "capacity": "1.6",
+    "transmission": "Manual",
+    "engine": "Inline 4 VTEC",
+    "engineType": "Type R",
+    "drive": "FWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073634/cars/1129-honda-prelude/honda-prelude-bb6-sale_pg8bo0.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073632/cars/1129-honda-prelude/honda-prelude-bb6-sale_1_nxqihe.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073633/cars/1129-honda-prelude/honda-prelude-bb6-sale_3_jbhwlw.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073633/cars/1129-honda-prelude/honda-prelude-bb6-sale_4_e0kddl.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073632/cars/1129-honda-prelude/honda-prelude-bb6-sale_2_y6i9vd.jpg"
+    ]
+  },
+  {
+    "make": "Toyota",
+    "model": "Aristo",
+    "year": 1998,
+    "price": 17900,
+    "mileage": 88950,
+    "capacity": "3.0",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "V300",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329819/cars/1176-toyota-aristo/toyota-aristo-sale_zlgch5.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329814/cars/1176-toyota-aristo/toyota-aristo-sale_1_jrnclf.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329815/cars/1176-toyota-aristo/toyota-aristo-sale_2_emtlp8.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329816/cars/1176-toyota-aristo/toyota-aristo-sale_3_b94tld.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329817/cars/1176-toyota-aristo/toyota-aristo-sale_4_d2oeru.jpg"
+    ]
+  },
+  {
+    "make": "Mazda",
+    "model": "Roadster",
+    "year": 1998,
+    "price": 7500,
+    "mileage": 262412,
+    "capacity": "1.6",
+    "transmission": "Manual",
+    "engine": "Inline 4",
+    "engineType": "-",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073952/cars/1177-mazda-roadster/mazda-roadster-sale_yvg1od.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073946/cars/1177-mazda-roadster/mazda-roadster-sale_1_gtx5vr.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073948/cars/1177-mazda-roadster/mazda-roadster-sale_2_c519sk.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073950/cars/1177-mazda-roadster/mazda-roadster-sale_4_iwji94.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073949/cars/1177-mazda-roadster/mazda-roadster-sale_3_wtxqaf.jpg"
+    ]
+  },
+  {
+    "make": "Subaru",
+    "model": "Forester",
+    "year": 2001,
+    "price": 20000,
+    "mileage": 91920,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Flat-four",
+    "engineType": "WRX STi",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074016/cars/1181-subaru-forester/subaru-forester-sti-ii-type-m-sale_r8m6k9.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074010/cars/1181-subaru-forester/subaru-forester-sti-ii-type-m-sale_1_qibrhz.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074011/cars/1181-subaru-forester/subaru-forester-sti-ii-type-m-sale_2_utrsxb.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074013/cars/1181-subaru-forester/subaru-forester-sti-ii-type-m-sale_4_quhexr.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074015/cars/1181-subaru-forester/subaru-forester-sti-ii-type-m-sale_3_hz2qoi.jpg"
+    ]
+  },
+  {
+    "make": "Toyota",
+    "model": "Chaser",
+    "year": 1996,
+    "price": 19500,
+    "mileage": 170400,
+    "capacity": "3.0",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "Twin-Turbo",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329803/cars/1052-toyota-chaser/toyota-chaser-for-sale_xzlhnz.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329793/cars/1052-toyota-chaser/toyota-chaser-for-sale_1_qcidjy.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329799/cars/1052-toyota-chaser/toyota-chaser-for-sale_2_gogudk.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329800/cars/1052-toyota-chaser/toyota-chaser-for-sale_3_h0nffl.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739329801/cars/1052-toyota-chaser/toyota-chaser-for-sale_4_fvxx6h.jpg"
+    ]
+  },
+  {
+    "make": "Nissan",
+    "model": "Skyline R32",
+    "year": 1991,
+    "price": 50000,
+    "mileage": 45500,
+    "capacity": "2.6",
+    "transmission": "Manual",
+    "engine": "Inline 6",
+    "engineType": "GT-R",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328208/cars/1182-nissan-stagea/nissan-skyline-r32-gtr-sale_qwgs5k.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328207/cars/1182-nissan-stagea/nissan-skyline-r32-gtr-sale_3_npyye2.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328207/cars/1182-nissan-stagea/nissan-skyline-r32-gtr-sale_1_cfghlg.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328208/cars/1182-nissan-stagea/nissan-skyline-r32-gtr-sale_2_c34j8q.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328208/cars/1182-nissan-stagea/nissan-skyline-r32-gtr-sale_4_w9ysha.jpg"
+    ]
+  },
+  {
+    "make": "Mitsubishi",
+    "model": "Lancer",
+    "year": 2006,
+    "price": 28000,
+    "mileage": 78000,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Inline 4",
+    "engineType": "Evo IX",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074052/cars/1184-mitsu-lancer-evo-ix/mitsubishi-lancer-evolution-ix-mr-sale_m8xe8g.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739328473/cars/1184-mitsu-lancer-evo-ix/mitsubishi-lancer-evolution-ix-mr-sale123_vgcdlw.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074049/cars/1184-mitsu-lancer-evo-ix/mitsubishi-lancer-evolution-ix-mr-sale_1_jjcdck.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074051/cars/1184-mitsu-lancer-evo-ix/mitsubishi-lancer-evolution-ix-mr-sale_2_b2wtjs.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074054/cars/1184-mitsu-lancer-evo-ix/mitsubishi-lancer-evolution-ix-mr-sale_3_dxx4x0.jpg"
+    ]
+  },
+  {
+    "make": "Mazda",
+    "model": "RX-7",
+    "year": 1995,
+    "price": 19900,
+    "mileage": 37900,
+    "capacity": "1.3",
+    "transmission": "Manual",
+    "engine": "Twin-Rotor",
+    "engineType": "Spirit R",
+    "drive": "RWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074112/cars/1190-mazda-rx-7-rs/mazda-rx-7-sale_zgzgd4.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074101/cars/1190-mazda-rx-7-rs/mazda-rx-7-sale_1_xgrpye.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074103/cars/1190-mazda-rx-7-rs/mazda-rx-7-sale_2_tj8ozd.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074105/cars/1190-mazda-rx-7-rs/mazda-rx-7-sale_3_ji4oij.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074109/cars/1190-mazda-rx-7-rs/mazda-rx-7-sale_4_iybbyx.jpg"
+    ]
+  },
+  {
+    "make": "Mitsubishi",
+    "model": "Lancer",
+    "year": 1998,
+    "price": 44500,
+    "mileage": 35250,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Inline 4",
+    "engineType": "Evo V",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074076/cars/1187-mitsu-lancer-evo-v/mitsubishi-lancer-evolution-v-sale_f7fa6d.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074068/cars/1187-mitsu-lancer-evo-v/mitsubishi-lancer-evolution-v-sale_1_aqczrq.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074072/cars/1187-mitsu-lancer-evo-v/mitsubishi-lancer-evolution-v-sale_2_wq9czo.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074074/cars/1187-mitsu-lancer-evo-v/mitsubishi-lancer-evolution-v-sale_4_jhck5d.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739074070/cars/1187-mitsu-lancer-evo-v/mitsubishi-lancer-evolution-v-sale_3_r8mhsf.jpg"
+    ]
+  },
+  {
+    "make": "Subaru",
+    "model": "Impreza",
+    "year": 1997,
+    "price": 15500,
+    "mileage": 96600,
+    "capacity": "2.0",
+    "transmission": "Manual",
+    "engine": "Flat-four",
+    "engineType": "WRX STi",
+    "drive": "AWD",
+    "description": "Mostly stock, Recaro seats, Aftermarket coilovers",
+    "photos": [
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073610/cars/618-subaru-impreza/subaru-impreza-sale_ly212c.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073609/cars/618-subaru-impreza/subaru-impreza-sale_1_kwn1la.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073609/cars/618-subaru-impreza/subaru-impreza-sale_3_iye5lw.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073610/cars/618-subaru-impreza/subaru-impreza-sale_4_g5j4vd.jpg",
+      "https://res.cloudinary.com/dvpw1seyg/image/upload/v1739073609/cars/618-subaru-impreza/subaru-impreza-sale_2_fxot7x.jpg"
+    ]
+  }
+]
