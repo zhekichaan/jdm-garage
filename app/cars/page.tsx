@@ -244,7 +244,7 @@ export default function Cars() {
               {carsList.map((car: Car) => (
                 <li
                   key={car._id}
-                  className="w-[300px] p-[15px] bg-bg drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
+                  className="w-[300px] p-[15px] bg-white drop-shadow-lg rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
                 >
                   <Link href={"cars/" + car._id}>
                     <div className="relative w-[270px] h-[180px]">

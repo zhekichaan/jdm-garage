@@ -1,6 +1,12 @@
 "use client";
 
-import { backIcon, leftIcon, rightIcon, wheelExample } from "@/public";
+import {
+  backIcon,
+  leftIcon,
+  rightIcon,
+  wheelExample,
+  wheelPlaceholder,
+} from "@/public";
 import Link from "next/link";
 import { button, selectedButton } from "@/public";
 import Image from "next/image";
@@ -230,7 +236,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                 {wheelData.photos.map((photo) => (
                   <Image
                     key={photo}
-                    src={photo}
+                    src={wheelPlaceholder}
                     width={460}
                     height={460}
                     alt=""
@@ -354,7 +360,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                         }}
                       >
                         {wheelsList
-                          .filter((wheel) => wheel.size === wheelData.size)
+                          .filter((wheel) => wheel.brand === wheelData.brand)
                           .map((wheel: Wheel) => (
                             <div
                               key={wheel._id}
@@ -364,7 +370,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                               className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
                             >
                               <Image
-                                src={wheel.photos[0]}
+                                src={wheelPlaceholder}
                                 alt="wheel example"
                                 width={140}
                                 height={140}

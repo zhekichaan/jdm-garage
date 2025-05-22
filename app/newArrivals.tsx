@@ -64,7 +64,7 @@ export const NewArrivals = () => {
 
   return (
     <>
-      <div className="hidden md:block my-[50px] pb-[20px] bg-bg">
+      <div className="hidden md:block my-[50px] pb-[20px]">
         <h2 className="text-center text-[40px] py-[30px] uppercase">
           New Arrivals
         </h2>

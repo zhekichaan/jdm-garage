@@ -54,7 +54,10 @@ import plus from "./plus.png";
 
 import carMap from "./car-map.jpg";
 
+import wheelPlaceholder from "./wheel-placeholder.png";
+
 export {
+  wheelPlaceholder,
   carMap,
   minus,
   plus,

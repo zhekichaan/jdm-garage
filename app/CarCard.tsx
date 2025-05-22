@@ -77,7 +77,7 @@ export const CarCard = ({
               />
             </div>
             <div className="pt-[20px]">
-              <h3 className="text-[26px] w-[234px] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
+              <h3 className="text-[26px] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
                 {make} {model}
               </h3>
               <p className="text-2xl">${price} CAD</p>
