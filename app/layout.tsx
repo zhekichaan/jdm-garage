@@ -1,9 +1,5 @@
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { Header } from "./Header";
-import DropdownMenu from "./DropdownMenu";
-import { Footer } from "./Footer";
-import MobileMenu from "./MobileMenu";
 import { Providers } from "@/redux/provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });

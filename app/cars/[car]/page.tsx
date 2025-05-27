@@ -167,29 +167,29 @@ export default function Car({ params }: { params: CarParams }) {
                 ))}
               </Carousel>
             </div>
-            <div className="p-[15px] bg-white text-black md:p-[10px] xl:w-[426px]">
+            <div className="p-[15px] bg-white md:p-[10px] xl:w-[426px]">
               <div className="pb-4">
                 <div className="flex justify-between border-2 border-accent border-collapse">
                   <div className="px-1 pt-1">
-                    <h3 className="text-secondary font-bold">車種</h3>
+                    <h3 className="text-text font-bold">車種</h3>
                     <h4 className="uppercase text-xl">
                       {carData.make} {carData.model}
                     </h4>
                   </div>
                   <div className="px-1 pt-1 border-l-2 border-accent">
-                    <h3 className="text-secondary font-bold">年</h3>
+                    <h3 className="text-text font-bold">年</h3>
                     <h4 className="text-2xl px-3">{carData.year}</h4>
                   </div>
                 </div>
                 <div className="flex justify-between border-x-2 border-b-2 border-accent border-collapse">
                   <div className="px-1 pt-1">
-                    <h3 className="text-secondary font-bold">マイレージ</h3>
+                    <h3 className="text-text font-bold">マイレージ</h3>
                     <h4 className="text-2xl">
                       {carData.mileage.toLocaleString("en-US")} km
                     </h4>
                   </div>
                   <div className="px-1 pt-1 border-l-2 border-accent">
-                    <h3 className="text-secondary font-bold">価格</h3>
+                    <h3 className="text-text font-bold">価格</h3>
                     <h4 className="text-2xl px-3">
                       ¥{(carData.price * 105).toLocaleString("en-US")}
                     </h4>
@@ -199,36 +199,34 @@ export default function Car({ params }: { params: CarParams }) {
               <div className="pb-6  ">
                 <div className="flex justify-between border-2 border-accent border-collapse">
                   <div className="px-1 pt-1 text-left">
-                    <h3 className="text-secondary font-bold">エンジン</h3>
+                    <h3 className="text-text font-bold">エンジン</h3>
                     <h4 className="uppercase text-2xl">{carData.engine}</h4>
                   </div>
                   <div className="flex">
                     <div className="px-1 pt-1 border-l-2 border-accent">
-                      <h3 className="text-secondary font-bold">排気量</h3>
+                      <h3 className="text-text font-bold">排気量</h3>
                       <h4 className="text-2xl px-3">{carData.capacity} L</h4>
                     </div>
                     <div className="px-1 pt-1 border-l-2 border-accent">
-                      <h3 className="text-secondary font-bold">シフト</h3>
+                      <h3 className="text-text font-bold">シフト</h3>
                       <h4 className="text-2xl ">{carData.transmission}</h4>
                     </div>
                   </div>
                 </div>
                 <div className="flex justify-between border-x-2 border-b-2 border-accent border-collapse">
                   <div className="px-1 pt-1">
-                    <h3 className="text-secondary font-bold">エンジン種類</h3>
+                    <h3 className="text-text font-bold">エンジン種類</h3>
                     <h4 className="text-2xl">{carData.engineType}</h4>
                   </div>
                   <div className="px-1 pt-1 border-l-2 border-accent">
-                    <h3 className="text-secondary font-bold">
-                      ドライブトレイン
-                    </h3>
+                    <h3 className="text-text font-bold">ドライブトレイン</h3>
                     <h4 className="text-2xl ">{carData.drive}</h4>
                   </div>
                 </div>
               </div>
               <div className="flex justify-between">
                 <div>
-                  <h3 className="text-secondary font-bold">検査官のメモ</h3>
+                  <h3 className="text-text font-bold">検査官のメモ</h3>
                   <p className="text-xl pr-5 leading-[45px] underline underline-offset-8 decoration-dotted">
                     {carData.description}
                   </p>

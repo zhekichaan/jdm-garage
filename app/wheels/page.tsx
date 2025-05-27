@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  filterIcon,
-  wheelExample,
-  wheelPlaceholder,
-  wheelsBanner,
-} from "@/public";
+import { filterIcon, wheelsBanner } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -237,7 +232,7 @@ export default function Wheels() {
               >
                 <Link href={"wheels/" + wheel._id} className="text-center">
                   <Image
-                    src={wheelPlaceholder}
+                    src={wheel.photos[0]}
                     alt="wheel example"
                     className="p-[5px]"
                     width={190}

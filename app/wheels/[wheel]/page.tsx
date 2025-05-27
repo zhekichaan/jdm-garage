@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  backIcon,
-  leftIcon,
-  rightIcon,
-  wheelExample,
-  wheelPlaceholder,
-} from "@/public";
+import { backIcon, leftIcon, rightIcon } from "@/public";
 import Link from "next/link";
 import { button, selectedButton } from "@/public";
 import Image from "next/image";
@@ -194,13 +188,13 @@ export default function Wheel({ params }: { params: WheelParams }) {
                       <div
                         className={`${
                           hasPrev ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } hidden md:block bottom-[2px] left-[5%] md:left-0 md:bottom-[50%] bg-accent md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
                           src={leftIcon}
                           alt="left"
-                          className="text-white w-[20px] md:w-[30px] select-none"
+                          className="text-accent w-[20px] md:w-[30px] select-none"
                         />
                       </div>
                       <div
@@ -216,7 +210,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                       <div
                         className={`${
                           hasNext ? "absolute" : "hidden"
-                        } hidden md:block bottom-[2px] right-[5%] md:right-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
+                        } bottom-[2px] right-[5%] md:right-0 md:bottom-[50%] md:translate-y-2/4 md:py-[75px] md:px-[12px] bg-transparent flex justify-center items-center opacity-1 hover:opacity-100 rounded-full cursor-pointer z-20 xl:hover:scale-90`}
                         onClick={clickHandler}
                       >
                         <Image
@@ -236,7 +230,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                 {wheelData.photos.map((photo) => (
                   <Image
                     key={photo}
-                    src={wheelPlaceholder}
+                    src={photo}
                     width={460}
                     height={460}
                     alt=""
@@ -309,7 +303,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                                 <Image
                                   src={leftIcon}
                                   alt="left"
-                                  className="text-white w-[20px] select-none"
+                                  className="text-accent w-[20px] select-none"
                                 />
                               </div>
                               <div
@@ -331,7 +325,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                                 <Image
                                   src={rightIcon}
                                   alt="right"
-                                  className="text-white w-[20px] select-none"
+                                  className="text-accent w-[20px] select-none"
                                 />
                               </div>
                               <div
@@ -370,7 +364,7 @@ export default function Wheel({ params }: { params: WheelParams }) {
                               className="text-center mb-[40px] w-[160px] md:w-[230px] xl:w-[160px] p-[10px] mx-auto my-[8px] bg-white cursor-pointer shadow rounded hover:drop-shadow-none hover:outline-[1px] hover:outline-dashed ease-in-out transition-all"
                             >
                               <Image
-                                src={wheelPlaceholder}
+                                src={wheel.photos[0]}
                                 alt="wheel example"
                                 width={140}
                                 height={140}

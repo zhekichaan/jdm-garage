@@ -1,7 +1,5 @@
-import { carExample } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
-import { Key, useEffect } from "react";
 
 interface Props {
   id: string;
@@ -23,12 +21,10 @@ export const CarCard = ({
   year,
   price,
   mileage,
-  fuel,
-  transmission,
-  engine,
   photos,
 }: Props) => {
   const baseUrl = "cars/";
+
   return (
     <div className="w-[700px] mx-auto mb-[50px] xl:mb-[60px] text-center">
       <div className="rounded w-full h-full text-black bg-white drop-shadow-lg p-[15px]">
@@ -47,34 +43,18 @@ export const CarCard = ({
           </div>
           <div className="pl-[15px] h-[300px] flex flex-col divide-y-[1px]">
             <div className="grid grid-cols-2 gap-[10px] pb-[20px]">
-              <Image
-                src={photos[1]}
-                alt="car"
-                width={100}
-                height={50}
-                className="w-[120px]"
-              />
-              <Image
-                src={photos[2]}
-                alt="car"
-                width={100}
-                height={50}
-                className="w-[120px]"
-              />
-              <Image
-                src={photos[3]}
-                alt="car"
-                width={100}
-                height={50}
-                className="w-[120px]"
-              />
-              <Image
-                src={photos[4]}
-                alt="car"
-                width={100}
-                height={50}
-                className="w-[120px]"
-              />
+              {photos.map((photo) => {
+                return (
+                  <Image
+                    key={photo}
+                    src={photo}
+                    alt="car"
+                    width={100}
+                    height={50}
+                    className="w-[120px]"
+                  />
+                );
+              })}
             </div>
             <div className="pt-[20px]">
               <h3 className="text-[26px] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { backIcon, cartIcon, minus, plus, wheelExample } from "@/public";
 import {

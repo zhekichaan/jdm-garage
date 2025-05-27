@@ -18,8 +18,6 @@ import {
   enkei,
   rays,
   ssr,
-  watanabe,
-  weds,
   work,
   yokohama,
   subaru,
@@ -48,7 +46,7 @@ const DropdownMenu = () => {
     <>
       <div className="hidden xl:block">
         <div className="dropdown">
-          <ul className="flex w-[1000px] m-auto justify-between items-center font-montserrat">
+          <ul className="flex w-[1000px] m-auto justify-between items-center">
             <li>
               <Link
                 onMouseEnter={() => handleOptionHover("cars")}

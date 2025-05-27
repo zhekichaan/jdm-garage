@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
-import { Island_Moments } from "next/font/google";
 
 interface Car {
   _id: string;
@@ -259,10 +258,9 @@ export default function Cars() {
                       {car.year} {car.make} {car.model}
                     </h3>
                     <p className="text-[16px] my-[3px]">${car.price} CAD</p>
-                    <ul className="flex divide-x-[1px] text-[14px] ">
-                      <li className="pr-[10px]">{car.mileage}km</li>
-                      <li className="px-[10px]">{car.fuel}</li>
-                      <li className="pl-[10px]">{car.transmission}</li>
+                    <ul className="flex divide-x text-[14px] ">
+                      <li className="pr-[5px]">{car.mileage}km</li>
+                      <li className="pl-[5px]">{car.transmission}</li>
                     </ul>
                   </Link>
                 </li>
